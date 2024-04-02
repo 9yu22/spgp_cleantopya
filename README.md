@@ -38,37 +38,37 @@
 
 첫번째 스테이지는 '먼지 털기'로 먼지털이(예시)에 붙어있는 먼지를 털기 위하여 빠른 속도로 버튼을 번갈아 누르면 되는 게임이다. 먼지를 다 털면 다음 스테이지로 넘어간다.
 ![](http://webimage.uniana.com/bishibashi/images/web/bishi/game_01_02.jpg)
+<img src = "https://postfiles.pstatic.net/MjAyNDA0MDJfMjU1/MDAxNzEyMDU5MzY4MzYx.YuBYEACXqDC_sjdT6VdR3Gdy4ORPkIGK2tnh2qOYSyQg.7lILFT9dxwOFVnrsUQuiNipRhK-UEaQDwOGHZbqiKA0g.PNG/image.png?type=w773" height = "200">
+
 
 두번째 스테이지는 '청소기 돌리기'로 청소기로 아이템의 위치에 해당하는 버튼을 눌러 마지막 아이템까지 가장 빨리 흡입하면 되는 게임이다. 
 ![](http://webimage.uniana.com/bishibashi/images/web/bishi/game_02_05.jpg)
+<img src = "https://postfiles.pstatic.net/MjAyNDA0MDJfOTUg/MDAxNzEyMDU5MjY2ODcy._4yNgJfbpQ8DqFM2q1HRLtKaaatC-Qh1u5vlSlC-mPsg.seqWGzk7KB0e1BI6L0NkS2hitBfT43EX3RiKhIMJ4FMg.PNG/image.png?type=w773" height = "200">
    
 이후 성적이 부여되며 게임은 종료된다.
 성적 부여방식의 예) 3개의 스테이지의 총 걸린시간이 60초 이내일 경우 sss등급
 <img src="https://i.ytimg.com/vi/POTp4Mdsg8w/maxresdefault.jpg" height="180">
 
 
+
 #### 개발 일정
  1주차(4/4 - 4/10) - 시작화면 구성, 플레이 화면 구성
  
- 2주차(4/11 - 4/17) - 첫번째 스테이지('먼지털기') 만들기 - 리소스 수집, 게임 플레이
+ 2주차(4/11 - 4/17) - 첫번째 스테이지 만들기 - 리소스 수집, 게임 플레이 및 버튼 기능 구현
 
- 3주차(4/18 - 4/24) - 첫번째 스테이지 만들기(완) - 애니메이션 넣기
+ 3주차(4/18 - 4/24) - 첫번째 스테이지 만들기(완) - 클릭 횟수에 따라 먼지가 사라짐. 초단위 시간측정
  
- 4주차(4/25 - 5/1) - 두번째 스테이지('청소기돌리기') 만들기 - 리소스 수집, 플레이 및 버튼 기능 구현
+ 4주차(4/25 - 5/1) - 두번째 스테이지 만들기 - 리소스 수집, 플레이 및 버튼 기능 구현
  
  5주차(5/2 - 5/8) - 부족한 부분 보완, 2차 발표준비
  
  6주차(5/9 - 5/15) - 두번째 스테이지 만들기(완) - 흔들림 등 추가 애니메이션 구현
 
     *5/10 2차발표
- 7주차(5/16 - 5/22) - 시작 카운트다운, 나가기버튼, 초단위 시간측정
+ 7주차(5/16 - 5/22) - 시작 카운트다운, 나가기버튼
  
  8주차(5/23 - 5/29) - 시간에 따른 최종 점수판, 언어지원 추가
  
  9주차(5/30 - 6/5)(6/6 - 6/12)  - 피드백 및 수정, 3차 발표 준비
 
     *6/14 3차발표
-
----
-
-### 발표 내용
