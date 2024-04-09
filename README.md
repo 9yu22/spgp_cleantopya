@@ -41,11 +41,13 @@
 게임 시작버튼을 누르면 총 2가지 스테이지가 진행되며, 걸린시간의 총합으로 성적이 부여된다.
 
 첫번째 스테이지는 '먼지 털기'로 먼지털이(예시)에 붙어있는 먼지를 털기 위하여 빠른 속도로 버튼을 번갈아 누르면 되는 게임이다. 먼지를 다 털면 다음 스테이지로 넘어간다.
+
 ![](http://webimage.uniana.com/bishibashi/images/web/bishi/game_01_02.jpg)
 <img src = "https://postfiles.pstatic.net/MjAyNDA0MDJfMjU1/MDAxNzEyMDU5MzY4MzYx.YuBYEACXqDC_sjdT6VdR3Gdy4ORPkIGK2tnh2qOYSyQg.7lILFT9dxwOFVnrsUQuiNipRhK-UEaQDwOGHZbqiKA0g.PNG/image.png?type=w773" height = "205">
 
 
 두번째 스테이지는 '청소기 돌리기'로 청소기로 아이템의 위치에 해당하는 버튼을 눌러 마지막 아이템까지 가장 빨리 흡입하면 되는 게임이다. 
+
 ![](http://webimage.uniana.com/bishibashi/images/web/bishi/game_02_05.jpg)
 <img src = "https://postfiles.pstatic.net/MjAyNDA0MDJfOTUg/MDAxNzEyMDU5MjY2ODcy._4yNgJfbpQ8DqFM2q1HRLtKaaatC-Qh1u5vlSlC-mPsg.seqWGzk7KB0e1BI6L0NkS2hitBfT43EX3RiKhIMJ4FMg.PNG/image.png?type=w773" height = "200">
    
