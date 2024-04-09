@@ -14,22 +14,26 @@
  1.먼지 털기(클릭횟수에 대한 스피드를 측정)
     
     *필요한 리소스: background, 먼지를 갖고있는 주체, 먼지
-    *터치에 따른, 주체의 흔들리는 애니메이션과 리소스변화
+    *게임이 시작되면 100~109번 사이에서 랜덤으로 터치해야할 횟수가 지정됨.
+    *총 10개의 먼지가 붙어있으며, 터치10번에 먼지1개가 사라짐.
 
- 2.청소기 돌리기(아이템을 얼마나 많이 획득하는지 측정)
+ 2.청소기 돌리기(아이템을 얼마나 많이 획득하는지를 측정)
     
     *필요한 리소스: 바닥 background, 아이템(돈)
     *아이템이 있는 길에 따라 그 위치의 버튼을 누름
-    *아이템 획득 시 사라짐 & 획득한 갯수 기록
-    *버튼을 잘못 눌렀을시, 잠시 멈추고 화면이 흔들린다.
+    *아이템은 3가지 길 중 1~2곳에서 랜덤으로 생성됨.
+    *버튼을 옳게 누르면 해당 아이템은 사라짐 & 아이템을 획득한 갯수가 기록됨.
+    *버튼을 잘못 눌렀을시, 잠시 멈추고 휴대폰 화면 전체가 흔들리고 입력이 2초동안 불가능하다.
 
  
+
  * 게임시작 버튼, activity 전환
  * 스테이지 시작 카운트 다운
  * 왼쪽/중앙/오른쪽/finish 버튼, 나가기 버튼(alert)
  * 초단위로 게임플레이 시간을 측정
- * 시간에 따른 최종 점수판
+ * 시간에 따른 최종 점수판(40초 sss등급, 50초 ss등급, 60초 s등급, 70초 a등급, 80초 b등급, 90초 f등급)
  * 언어지원(한국어, 영어)
+ * 버튼 사운드와 배경 음악 추가
 
 
 #### 예상 게임 실행 흐름
@@ -38,7 +42,7 @@
 
 첫번째 스테이지는 '먼지 털기'로 먼지털이(예시)에 붙어있는 먼지를 털기 위하여 빠른 속도로 버튼을 번갈아 누르면 되는 게임이다. 먼지를 다 털면 다음 스테이지로 넘어간다.
 ![](http://webimage.uniana.com/bishibashi/images/web/bishi/game_01_02.jpg)
-<img src = "https://postfiles.pstatic.net/MjAyNDA0MDJfMjU1/MDAxNzEyMDU5MzY4MzYx.YuBYEACXqDC_sjdT6VdR3Gdy4ORPkIGK2tnh2qOYSyQg.7lILFT9dxwOFVnrsUQuiNipRhK-UEaQDwOGHZbqiKA0g.PNG/image.png?type=w773" height = "200">
+<img src = "https://postfiles.pstatic.net/MjAyNDA0MDJfMjU1/MDAxNzEyMDU5MzY4MzYx.YuBYEACXqDC_sjdT6VdR3Gdy4ORPkIGK2tnh2qOYSyQg.7lILFT9dxwOFVnrsUQuiNipRhK-UEaQDwOGHZbqiKA0g.PNG/image.png?type=w773" height = "205">
 
 
 두번째 스테이지는 '청소기 돌리기'로 청소기로 아이템의 위치에 해당하는 버튼을 눌러 마지막 아이템까지 가장 빨리 흡입하면 되는 게임이다. 
@@ -46,7 +50,6 @@
 <img src = "https://postfiles.pstatic.net/MjAyNDA0MDJfOTUg/MDAxNzEyMDU5MjY2ODcy._4yNgJfbpQ8DqFM2q1HRLtKaaatC-Qh1u5vlSlC-mPsg.seqWGzk7KB0e1BI6L0NkS2hitBfT43EX3RiKhIMJ4FMg.PNG/image.png?type=w773" height = "200">
    
 이후 성적이 부여되며 게임은 종료된다.
-성적 부여방식의 예) 3개의 스테이지의 총 걸린시간이 60초 이내일 경우 sss등급
 <img src="https://i.ytimg.com/vi/POTp4Mdsg8w/maxresdefault.jpg" height="180">
 
 
