@@ -5,20 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".GameActivity">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cleantopya"
+        android:text="GameActivity"
         android:textSize="70sp"
         />
     <Button
-        android:id="@+id/button_start"
+        android:id="@+id/button_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="GameStart"
+        android:text="Reset"
         android:textSize="30sp"
         />
+
 
 </LinearLayout>
