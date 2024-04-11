@@ -16,14 +16,14 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+        GameView gameView = new GameView(this);
+
         button = findViewById(R.id.button_test);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // GameActivity를 닫고 MainActivity를 시작
                 Intent intent = new Intent(GameActivity.this, MainActivity.class);
                 startActivity(intent);
-                finish(); // 현재 액티비티 종료
             }
         });
     }
