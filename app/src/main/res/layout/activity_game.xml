@@ -6,63 +6,34 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".GameActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="GameActivity"
-            android:textSize="30sp"
             android:layout_weight="2"
-            />
+            android:text="GameActivity"
+            android:textSize="30sp" />
+
         <Button
             android:id="@+id/button_test"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Reset"
-            android:textSize="20sp"
             android:layout_weight="1"
-            />
+            android:text="Reset"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
     <com.example.myapplication.GameView
         android:layout_width="wrap_content"
-        android:layout_height="467dp" />
-    <LinearLayout
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="red"
-            android:textSize="20sp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/red"
-            />
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="yellow"
-            android:textSize="20sp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/yellow"
-            />
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="blue"
-            android:textSize="20sp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/blue"
-            />
+        />
 
-    </LinearLayout>
 
 </LinearLayout>

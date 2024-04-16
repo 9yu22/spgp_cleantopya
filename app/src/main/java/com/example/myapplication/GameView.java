@@ -7,65 +7,21 @@ import android.graphics.Paint;
 import android.graphics.PointF;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.nfc.Tag;
 import android.text.TextPaint;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 
 /**
  * TODO: document your custom view class.
  */
 public class GameView extends View {
-    private TextPaint mTextPaint;
-    private Paint BrownPaint;
-    private Paint YellowPaint;
-    private Paint RedPaint;
-    private Paint BlackPaint;
-
-    private Paint WhitePaint;
-
-    private Paint getBrown() {
-        if (BrownPaint == null) {
-            BrownPaint = new Paint();
-            BrownPaint.setColor(Color.parseColor("#BF4C00"));
-            BrownPaint.setStyle(Paint.Style.FILL);
-        }
-        return BrownPaint;
-    }
-    private Paint getYellow() {
-        if (YellowPaint == null) {
-            YellowPaint = new Paint();
-            YellowPaint.setColor(Color.parseColor("#F4D797"));
-            YellowPaint.setStyle(Paint.Style.FILL);
-        }
-        return YellowPaint;
-    }
-
-    private Paint getRed() {
-        if (RedPaint == null) {
-            RedPaint = new Paint();
-            RedPaint.setColor(Color.parseColor("#C91F16"));
-            RedPaint.setStyle(Paint.Style.FILL);
-        }
-        return RedPaint;
-    }
-    private Paint getBlack() {
-        if (BlackPaint == null) {
-            BlackPaint = new Paint();
-            BlackPaint.setColor(Color.BLACK);
-        }
-        return BlackPaint;
-    }
-
-    private Paint getWhite(){
-        if (WhitePaint == null) {
-            WhitePaint = new Paint();
-            WhitePaint.setColor(Color.WHITE);
-        }
-        return WhitePaint;
-    }
-
-    private Rect bread;
-    private RectF mouse;
+  TouchButton redButton;
+  TouchButton yellowButton;
+  TouchButton blueButton;
+  int count;
 
     public GameView(Context context) {
         super(context);
@@ -83,8 +39,10 @@ public class GameView extends View {
     }
 
     private void init(AttributeSet attrs, int defStyle) {
-        mouse = new RectF();
-        bread = new Rect();
+        float yellowX = 4.5f;
+        redButton = new TouchButton(1, 14, 1);
+        yellowButton = new TouchButton(yellowX, 14, 2);
+        blueButton = new TouchButton(8, 14, 3);
     }
 
     @Override
@@ -109,51 +67,37 @@ public class GameView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-
         super.onDraw(canvas);
-
         canvas.save();
         canvas.translate(transformOffset.x, transformOffset.y);
         canvas.scale(transformScale, transformScale);
 
-
-        //식빵
-        canvas.drawCircle(2.f, 4.f, 0.5f, getBrown());
-        canvas.drawCircle(3.f, 4.f, 0.5f, getBrown());
-        canvas.drawCircle(4.f,4.f, 0.5f, getBrown());
-        bread.set(2, 4, 4, 6);
-        canvas.drawRect(bread, getBrown());
-
-
-        //호빵맨 얼굴
-        canvas.drawCircle(6.f, 12.f, 2.5f, getYellow());
-
-        //호빵맨 볼
-        canvas.drawCircle(5.2f, 12.f, 0.5f, getRed());
-        canvas.drawCircle(6.f, 12.f, 0.5f, getRed());
-        canvas.drawCircle(6.8f, 12.f, 0.5f, getRed());
-
-        //호빵맨 볼터치
-        canvas.drawRect(4.9f, 11.7f, 5.0f, 11.8f, getWhite());
-        canvas.drawRect(5.8f, 11.7f, 5.9f, 11.8f, getWhite());
-        canvas.drawRect(6.65f, 11.7f, 6.75f, 11.8f, getWhite());
-
-        //호빵맨 눈
-        canvas.drawOval(5.3f, 11.f, 5.7f, 11.8f, getBlack());
-        canvas.drawOval(6.3f, 11.f, 6.7f, 11.8f, getBlack());
-
-        //호빵맨 눈썹
-        BlackPaint.setStyle(Paint.Style.STROKE);
-        BlackPaint.setStrokeWidth(0.1f);
-        canvas.drawArc(5.0f, 10.5f, 5.9f, 11.5f, 180, 180, false, getBlack());
-        canvas.drawArc(6.1f, 10.5f, 7.0f, 11.5f, 180, 180, false, getBlack());
-        BlackPaint.setStyle(Paint.Style.FILL);
-
-        //호빵맨 입
-        mouse.set(5.2f, 11.2f, 6.8f, 14.2f);
-        canvas.drawArc(mouse, 0, 180, true, getRed());
+        redButton.Draw(canvas);
+        yellowButton.Draw(canvas);
+        blueButton.Draw(canvas);
 
         canvas.restore();
+    }
+
+    public boolean onTouchEvent(MotionEvent event) { //view에서 touch를 처리하는 방법
+        float redX = event.getX()/60;
+        float redY = event.getY()/66;
+        float yellowX = event.getX()/82;
+        float yellowY = event.getY()/64;
+        //이 변수들을 실제 휴대폰 좌표로 전환해주어야함.
+        if(event.getAction() == MotionEvent.ACTION_DOWN){ //손가락이 닿았을때
+                if(redButton.isClicked(redX, redY)) {
+                    count++;
+                }
+                if(yellowButton.isClicked(yellowX, yellowY)){
+                    count++;
+                };
+
+                Log.d("onTouchEvent", "count"+count);
+                return true;
+        }
+
+        return false; //뭐하지
     }
 
 }
