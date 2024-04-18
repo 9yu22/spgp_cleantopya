@@ -77,7 +77,9 @@ public class GameView extends View {
 
         canvas.save();
         if (backgroundImage != null) {
-            canvas.drawBitmap(backgroundImage, 0, 0, null);
+            Rect srcRect = new Rect(0, 0, backgroundImage.getWidth(), backgroundImage.getHeight());
+            RectF dstRect = new RectF(0, 0, getWidth(), getHeight());
+            canvas.drawBitmap(backgroundImage, srcRect, dstRect, null);
         }
         canvas.translate(transformOffset.x, transformOffset.y);
         canvas.scale(transformScale, transformScale);
