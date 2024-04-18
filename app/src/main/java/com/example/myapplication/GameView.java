@@ -82,22 +82,21 @@ public class GameView extends View {
     public boolean onTouchEvent(MotionEvent event) { //view에서 touch를 처리하는 방법
         float redX = event.getX()/60;
         float redY = event.getY()/66;
-        float yellowX = event.getX()/82;
-        float yellowY = event.getY()/64;
+        float blueX = event.getX()/82;
+        float blueY = event.getY()/64;
         //이 변수들을 실제 휴대폰 좌표로 전환해주어야함.
         if(event.getAction() == MotionEvent.ACTION_DOWN){ //손가락이 닿았을때
                 if(redButton.isClicked(redX, redY)) {
                     count++;
                 }
-                if(yellowButton.isClicked(yellowX, yellowY)){
+                if(blueButton.isClicked(blueX, blueY)){
                     count++;
                 };
 
                 Log.d("onTouchEvent", "count"+count);
-                return true;
         }
 
-        return false; //뭐하지
+        return true; //뭐하지
     }
 
 }
