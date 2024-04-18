@@ -24,6 +24,10 @@ public class GameView extends View {
   TouchButton yellowButton;
   TouchButton blueButton;
   private Bitmap backgroundImage;
+
+  Rect srcRect = new Rect();
+  RectF dstRect = new RectF();
+
   int count;
 
     public GameView(Context context) {
@@ -77,8 +81,8 @@ public class GameView extends View {
 
         canvas.save();
         if (backgroundImage != null) {
-            Rect srcRect = new Rect(0, 0, backgroundImage.getWidth(), backgroundImage.getHeight());
-            RectF dstRect = new RectF(0, 0, getWidth(), getHeight());
+            srcRect.set(0, 0, backgroundImage.getWidth(), backgroundImage.getHeight());
+            dstRect.set(0, 0, getWidth(), getHeight());
             canvas.drawBitmap(backgroundImage, srcRect, dstRect, null);
         }
         canvas.translate(transformOffset.x, transformOffset.y);
