@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -21,6 +23,7 @@ public class GameView extends View {
   TouchButton redButton;
   TouchButton yellowButton;
   TouchButton blueButton;
+  private Bitmap backgroundImage;
   int count;
 
     public GameView(Context context) {
@@ -39,6 +42,8 @@ public class GameView extends View {
     }
 
     private void init(AttributeSet attrs, int defStyle) {
+        backgroundImage = BitmapFactory.decodeResource(getResources(), R.mipmap.background);
+
         float yellowX = 4.5f;
         redButton = new TouchButton(1, 14, 1);
         yellowButton = new TouchButton(yellowX, 14, 2);
@@ -68,7 +73,12 @@ public class GameView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+
+
         canvas.save();
+        if (backgroundImage != null) {
+            canvas.drawBitmap(backgroundImage, 0, 0, null);
+        }
         canvas.translate(transformOffset.x, transformOffset.y);
         canvas.scale(transformScale, transformScale);
 
