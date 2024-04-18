@@ -31,6 +31,7 @@ public class GameView extends View {
   RectF dstRect = new RectF();
 
   int count;
+  int randomGoalCount = (int)(Math.random()*10)+10;
 
     public GameView(Context context) {
         super(context);
@@ -87,19 +88,13 @@ public class GameView extends View {
             dstRect.set(0, 0, getWidth(), getHeight());
             canvas.drawBitmap(backgroundImage, srcRect, dstRect, null);
         }
-
+        canvas.restore();
+        // 변환 적용 전에 cushionImage 그리기
         if(cushionImage != null){
-            //canvas.drawBitmap(cushionImage, 4, 8, null);
-            // 이미지를 2배로 확대하기 위한 Matrix 생성
             Matrix matrix = new Matrix();
             matrix.postScale(2f, 2f);
-
-            // Matrix를 사용하여 이미지를 변환하고 Canvas에 그림
             Bitmap scaledBitmap = Bitmap.createBitmap(cushionImage, 0, 0, cushionImage.getWidth(), cushionImage.getHeight(), matrix, true);
-            // 원래 이미지의 위치에서 확대된 이미지의 크기를 고려하여 그리는 위치를 조정
-            int drawX = 4 * 2; // 4를 2배하여 X 좌표 계산
-            int drawY = 8 * 2; // 8을 2배하여 Y 좌표 계산
-            canvas.drawBitmap(scaledBitmap, drawX, drawY, null);
+            canvas.drawBitmap(scaledBitmap, 4, 8, null);
         }
         canvas.translate(transformOffset.x, transformOffset.y);
         canvas.scale(transformScale, transformScale);
@@ -108,7 +103,7 @@ public class GameView extends View {
         yellowButton.Draw(canvas);
         blueButton.Draw(canvas);
 
-        canvas.restore();
+       // canvas.restore();
     }
 
     public boolean onTouchEvent(MotionEvent event) { //view에서 touch를 처리하는 방법
@@ -118,14 +113,17 @@ public class GameView extends View {
         float blueY = event.getY()/64;
         //이 변수들을 실제 휴대폰 좌표로 전환해주어야함.
         if(event.getAction() == MotionEvent.ACTION_DOWN){ //손가락이 닿았을때
-                if(redButton.isClicked(redX, redY)) {
+            if(count<randomGoalCount) {
+                if (redButton.isClicked(redX, redY)) {
                     count++;
                 }
-                if(blueButton.isClicked(blueX, blueY)){
+                if (blueButton.isClicked(blueX, blueY)) {
                     count++;
-                };
+                }
+                ;Log.d("onTouchEvent", "count"+count);
+            }
+            else Log.d("onTouchEvent", "count is End" + count);
 
-                Log.d("onTouchEvent", "count"+count);
         }
 
         return true; //뭐하지
