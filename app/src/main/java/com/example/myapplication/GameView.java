@@ -77,33 +77,31 @@ public class GameView extends View {
     private final PointF transformOffset = new PointF();
     private float transformScale;
 
+    RectF tempRect = new RectF(1.f, 4.f, 8.f, 11.f);
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-
-        canvas.save();
         if (backgroundImage != null) {
             srcRect.set(0, 0, backgroundImage.getWidth(), backgroundImage.getHeight());
             dstRect.set(0, 0, getWidth(), getHeight());
             canvas.drawBitmap(backgroundImage, srcRect, dstRect, null);
         }
-        canvas.restore();
-        // 변환 적용 전에 cushionImage 그리기
-        if(cushionImage != null){
-            Matrix matrix = new Matrix();
-            matrix.postScale(2f, 2f);
-            Bitmap scaledBitmap = Bitmap.createBitmap(cushionImage, 0, 0, cushionImage.getWidth(), cushionImage.getHeight(), matrix, true);
-            canvas.drawBitmap(scaledBitmap, 4, 8, null);
-        }
+
+        canvas.save();
         canvas.translate(transformOffset.x, transformOffset.y);
         canvas.scale(transformScale, transformScale);
+
+        if(cushionImage != null){
+            canvas.drawBitmap(cushionImage, null, tempRect, null);
+        }
 
         redButton.Draw(canvas);
         yellowButton.Draw(canvas);
         blueButton.Draw(canvas);
 
-       // canvas.restore();
+       canvas.restore();
     }
 
     public boolean onTouchEvent(MotionEvent event) { //view에서 touch를 처리하는 방법
