@@ -52,6 +52,7 @@
 <img src = "https://postfiles.pstatic.net/MjAyNDA0MDJfOTUg/MDAxNzEyMDU5MjY2ODcy._4yNgJfbpQ8DqFM2q1HRLtKaaatC-Qh1u5vlSlC-mPsg.seqWGzk7KB0e1BI6L0NkS2hitBfT43EX3RiKhIMJ4FMg.PNG/image.png?type=w773" height = "200">
    
 이후 성적이 부여되며 게임은 종료된다.
+
 <img src="https://i.ytimg.com/vi/POTp4Mdsg8w/maxresdefault.jpg" height="180">
 
 

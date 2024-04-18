@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PointF;
 import android.graphics.Rect;
@@ -24,6 +25,7 @@ public class GameView extends View {
   TouchButton yellowButton;
   TouchButton blueButton;
   private Bitmap backgroundImage;
+  private Bitmap cushionImage;
 
   Rect srcRect = new Rect();
   RectF dstRect = new RectF();
@@ -47,7 +49,7 @@ public class GameView extends View {
 
     private void init(AttributeSet attrs, int defStyle) {
         backgroundImage = BitmapFactory.decodeResource(getResources(), R.mipmap.background);
-
+        cushionImage = BitmapFactory.decodeResource(getResources(), R.mipmap.cushion);
         float yellowX = 4.5f;
         redButton = new TouchButton(1, 14, 1);
         yellowButton = new TouchButton(yellowX, 14, 2);
@@ -84,6 +86,20 @@ public class GameView extends View {
             srcRect.set(0, 0, backgroundImage.getWidth(), backgroundImage.getHeight());
             dstRect.set(0, 0, getWidth(), getHeight());
             canvas.drawBitmap(backgroundImage, srcRect, dstRect, null);
+        }
+
+        if(cushionImage != null){
+            //canvas.drawBitmap(cushionImage, 4, 8, null);
+            // 이미지를 2배로 확대하기 위한 Matrix 생성
+            Matrix matrix = new Matrix();
+            matrix.postScale(2f, 2f);
+
+            // Matrix를 사용하여 이미지를 변환하고 Canvas에 그림
+            Bitmap scaledBitmap = Bitmap.createBitmap(cushionImage, 0, 0, cushionImage.getWidth(), cushionImage.getHeight(), matrix, true);
+            // 원래 이미지의 위치에서 확대된 이미지의 크기를 고려하여 그리는 위치를 조정
+            int drawX = 4 * 2; // 4를 2배하여 X 좌표 계산
+            int drawY = 8 * 2; // 8을 2배하여 Y 좌표 계산
+            canvas.drawBitmap(scaledBitmap, drawX, drawY, null);
         }
         canvas.translate(transformOffset.x, transformOffset.y);
         canvas.scale(transformScale, transformScale);
