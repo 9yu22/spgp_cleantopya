@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.content.Context;
@@ -21,6 +22,7 @@ import android.view.View;
  * TODO: document your custom view class.
  */
 public class GameView extends View {
+  public static final String CUSTOM_ACTION = "com.example.myapplication.CUSTOM_ACTION";
   TouchButton redButton;
   TouchButton yellowButton;
   TouchButton blueButton;
@@ -109,6 +111,8 @@ public class GameView extends View {
         float redY = event.getY()/66;
         float blueX = event.getX()/82;
         float blueY = event.getY()/64;
+        float yellowX = event.getX()/87;
+        float yellowY = event.getY()/65;
         //이 변수들을 실제 휴대폰 좌표로 전환해주어야함.
         if(event.getAction() == MotionEvent.ACTION_DOWN){ //손가락이 닿았을때
             if(count<randomGoalCount) {
@@ -118,13 +122,14 @@ public class GameView extends View {
                 if (blueButton.isClicked(blueX, blueY)) {
                     count++;
                 }
-                ;Log.d("onTouchEvent", "count"+count);
+                Log.d("onTouchEvent", "count"+count);
             }
             else {
                 Log.d("onTouchEvent", "count is End" + count);
-
+                if(yellowButton.isClicked(yellowX, yellowY)){
+                    getContext().sendBroadcast(new Intent(CUSTOM_ACTION));
+                }
             }
-
         }
         return true; //뭐하지
     }
