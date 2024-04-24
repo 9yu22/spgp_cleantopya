@@ -11,22 +11,29 @@ public class GameActivity extends AppCompatActivity {
 
     public static GameActivity activity;
     private GameView gameView;
+    private GameView2 gameView2;
+    private boolean isGameView1Active = true; // 현재 활성화된 GameView가 1인지 여부를 추적
     Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activity = this;
-        gameView = new GameView(this);
-
         setContentView(R.layout.activity_game);
+
+        gameView = findViewById(R.id.gameView);
+        gameView2 = findViewById(R.id.gameView2);
 
         button = findViewById(R.id.button_test);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(GameActivity.this, MainActivity.class);
-                startActivity(intent);
+                //Intent intent = new Intent(GameActivity.this, MainActivity.class);
+                //startActivity(intent);
+                // GameView를 숨김
+                gameView.setVisibility(View.GONE);
+                // GameView2를 보임
+                gameView2.setVisibility(View.VISIBLE);
             }
         });
     }

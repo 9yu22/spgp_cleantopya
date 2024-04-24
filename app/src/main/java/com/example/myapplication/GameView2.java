@@ -1,63 +1,56 @@
 package com.example.myapplication;
 
+import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PointF;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import android.nfc.Tag;
+import android.graphics.drawable.Drawable;
 import android.text.TextPaint;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 
 /**
  * TODO: document your custom view class.
  */
-public class GameView extends View {
-  TouchButton redButton;
-  TouchButton yellowButton;
-  TouchButton blueButton;
-  private Bitmap backgroundImage;
-  private Bitmap cushionImage;
+public class GameView2 extends View {
 
-  Rect srcRect = new Rect();
-  RectF dstRect = new RectF();
+    TouchButton redButton;
+    TouchButton yellowButton;
+    TouchButton blueButton;
+    private Bitmap backgroundImage;
 
-  int count;
-  int randomGoalCount = (int)(Math.random()*10)+10;
+    Rect srcRect = new Rect();
+    RectF dstRect = new RectF();
 
-    public GameView(Context context) {
+
+    public GameView2(Context context) {
         super(context);
         init(null, 0);
     }
 
-    public GameView(Context context, AttributeSet attrs) {
+    public GameView2(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(attrs, 0);
     }
 
-    public GameView(Context context, AttributeSet attrs, int defStyle) {
+    public GameView2(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init(attrs, defStyle);
     }
 
     private void init(AttributeSet attrs, int defStyle) {
-        backgroundImage = BitmapFactory.decodeResource(getResources(), R.mipmap.background);
-        cushionImage = BitmapFactory.decodeResource(getResources(), R.mipmap.cushion);
+        backgroundImage = BitmapFactory.decodeResource(getResources(), R.mipmap.background2);
         float yellowX = 4.5f;
         redButton = new TouchButton(1, 14, 1);
         yellowButton = new TouchButton(yellowX, 14, 2);
         blueButton = new TouchButton(8, 14, 3);
     }
-
-    @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
 
@@ -77,58 +70,24 @@ public class GameView extends View {
     private final PointF transformOffset = new PointF();
     private float transformScale;
 
-    RectF tempRect = new RectF(1.f, 4.f, 8.f, 11.f);
-
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
         if (backgroundImage != null) {
             srcRect.set(0, 0, backgroundImage.getWidth(), backgroundImage.getHeight());
             dstRect.set(0, 0, getWidth(), getHeight());
             canvas.drawBitmap(backgroundImage, srcRect, dstRect, null);
         }
-
         canvas.save();
         canvas.translate(transformOffset.x, transformOffset.y);
         canvas.scale(transformScale, transformScale);
-
-        if(cushionImage != null){
-            canvas.drawBitmap(cushionImage, null, tempRect, null);
-        }
 
         redButton.Draw(canvas);
         yellowButton.Draw(canvas);
         blueButton.Draw(canvas);
 
-       canvas.restore();
+        canvas.restore();
     }
-
-    public boolean onTouchEvent(MotionEvent event) { //view에서 touch를 처리하는 방법
-        float redX = event.getX()/60;
-        float redY = event.getY()/66;
-        float blueX = event.getX()/82;
-        float blueY = event.getY()/64;
-        //이 변수들을 실제 휴대폰 좌표로 전환해주어야함.
-        if(event.getAction() == MotionEvent.ACTION_DOWN){ //손가락이 닿았을때
-            if(count<randomGoalCount) {
-                if (redButton.isClicked(redX, redY)) {
-                    count++;
-                }
-                if (blueButton.isClicked(blueX, blueY)) {
-                    count++;
-                }
-                ;Log.d("onTouchEvent", "count"+count);
-            }
-            else {
-                Log.d("onTouchEvent", "count is End" + count);
-
-            }
-
-        }
-        return true; //뭐하지
-    }
-
 
 
 }
