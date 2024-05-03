@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.example.myapplication.GameView2
+    <com.example.myapplication.Cleantopya.GameView2
         style="@style/Widget.Theme.MyApplication.MyView"
         android:layout_width="300dp"
         android:layout_height="300dp"

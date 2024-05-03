@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".GameActivity">
+    tools:context=".Cleantopya.GameActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,14 +30,14 @@
 
     </LinearLayout>
 
-    <com.example.myapplication.GameView
+    <com.example.myapplication.Cleantopya.GameView
         android:id="@+id/gameView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="visible"
         />
 
-    <com.example.myapplication.GameView2
+    <com.example.myapplication.Cleantopya.GameView2
         android:id="@+id/gameView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
