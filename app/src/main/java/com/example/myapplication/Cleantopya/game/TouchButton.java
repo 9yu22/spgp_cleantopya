@@ -1,4 +1,4 @@
-package com.example.myapplication.Cleantopya;
+package com.example.myapplication.Cleantopya.game;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;

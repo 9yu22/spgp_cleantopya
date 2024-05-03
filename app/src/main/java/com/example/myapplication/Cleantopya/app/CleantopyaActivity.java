@@ -1,4 +1,4 @@
-package com.example.myapplication.Cleantopya;
+package com.example.myapplication.Cleantopya.app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,11 +10,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.myapplication.Cleantopya.GameView;
+import com.example.myapplication.Cleantopya.GameView2;
 import com.example.myapplication.R;
 
-public class GameActivity extends AppCompatActivity {
+public class CleantopyaActivity extends AppCompatActivity {
 
-    public static GameActivity activity;
+    public static CleantopyaActivity activity;
     private GameView gameView;
     private GameView2 gameView2;
     private boolean isGameView1Active = true; // 현재 활성화된 GameView가 1인지 여부를 추적
@@ -45,7 +47,7 @@ public class GameActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(GameActivity.this, MainActivity.class);
+                Intent intent = new Intent(CleantopyaActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
