@@ -171,4 +171,5 @@ public class GameView extends View implements Choreographer.FrameCallback {
     public void destroyGame() {
         Scene.popAll();
     }
+
 }
