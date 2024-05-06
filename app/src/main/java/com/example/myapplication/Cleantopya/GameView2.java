@@ -45,9 +45,9 @@ public class GameView2 extends View {
     private void init(AttributeSet attrs, int defStyle) {
         backgroundImage = BitmapFactory.decodeResource(getResources(), R.mipmap.background2);
         float yellowX = 4.5f;
-        redButton = new TouchButton(1, 14, 1);
-        yellowButton = new TouchButton(yellowX, 14, 2);
-        blueButton = new TouchButton(8, 14, 3);
+        //redButton = new TouchButton(1, 14, 1);
+        //yellowButton = new TouchButton(yellowX, 14, 2);
+        //blueButton = new TouchButton(8, 14, 3);
     }
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
@@ -80,9 +80,9 @@ public class GameView2 extends View {
         canvas.translate(transformOffset.x, transformOffset.y);
         canvas.scale(transformScale, transformScale);
 
-        redButton.Draw(canvas);
-        yellowButton.Draw(canvas);
-        blueButton.Draw(canvas);
+        redButton.draw(canvas);
+        yellowButton.draw(canvas);
+        blueButton.draw(canvas);
 
         canvas.restore();
     }

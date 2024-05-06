@@ -19,7 +19,7 @@ import com.example.myapplication.R;
 /**
  * TODO: document your custom view class.
  */
-public class GameView extends View {
+public class GameView1 extends View {
   public static final String CUSTOM_ACTION = "com.example.myapplication.CUSTOM_ACTION";
   TouchButton redButton;
   TouchButton yellowButton;
@@ -33,17 +33,17 @@ public class GameView extends View {
   int count;
   int randomGoalCount = (int)(Math.random()*10)+10;
 
-    public GameView(Context context) {
+    public GameView1(Context context) {
         super(context);
         init(null, 0);
     }
 
-    public GameView(Context context, AttributeSet attrs) {
+    public GameView1(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(attrs, 0);
     }
 
-    public GameView(Context context, AttributeSet attrs, int defStyle) {
+    public GameView1(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init(attrs, defStyle);
     }
@@ -52,9 +52,9 @@ public class GameView extends View {
         backgroundImage = BitmapFactory.decodeResource(getResources(), R.mipmap.background);
         cushionImage = BitmapFactory.decodeResource(getResources(), R.mipmap.cushion);
         float yellowX = 4.5f;
-        redButton = new TouchButton(1, 14, 1);
-        yellowButton = new TouchButton(yellowX, 14, 2);
-        blueButton = new TouchButton(8, 14, 3);
+        //redButton = new TouchButton(1, 14);
+        //yellowButton = new TouchButton(yellowX, 14);
+        //blueButton = new TouchButton(8, 14);
     }
 
     @Override
@@ -97,9 +97,9 @@ public class GameView extends View {
             canvas.drawBitmap(cushionImage, null, tempRect, null);
         }
 
-        redButton.Draw(canvas);
-        yellowButton.Draw(canvas);
-        blueButton.Draw(canvas);
+        redButton.draw(canvas);
+        yellowButton.draw(canvas);
+        blueButton.draw(canvas);
 
        canvas.restore();
     }

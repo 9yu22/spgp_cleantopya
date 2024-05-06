@@ -21,6 +21,8 @@ public class Scene {
     private static final String TAG = Scene.class.getSimpleName();
     private static ArrayList<Scene> stack = new ArrayList<>();
 
+    public static boolean drawsDebugInfo = false;
+
     public static Scene top() {
         int top = stack.size() - 1;
         if (top < 0) {

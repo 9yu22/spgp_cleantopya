@@ -2,22 +2,27 @@ package com.example.myapplication.Cleantopya.app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Bundle;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.myapplication.Cleantopya.GameView;
+import com.example.myapplication.BuildConfig;
+import com.example.myapplication.Cleantopya.GameView1;
 import com.example.myapplication.Cleantopya.GameView2;
+import com.example.myapplication.Cleantopya.game.MainScene;
 import com.example.myapplication.R;
+import com.example.myapplication.framework.activity.GameActivity;
+import com.example.myapplication.framework.view.Metrics;
+import com.example.myapplication.framework.scene.Scene;
 
-public class CleantopyaActivity extends AppCompatActivity {
+public class CleantopyaActivity extends GameActivity {
 
-    public static CleantopyaActivity activity;
-    private GameView gameView;
+/*  public static CleantopyaActivity activity;
+    private GameView1 gameView;
     private GameView2 gameView2;
     private boolean isGameView1Active = true; // 현재 활성화된 GameView가 1인지 여부를 추적
     Button button;
@@ -37,7 +42,7 @@ public class CleantopyaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         // BroadcastReceiver 등록
-        IntentFilter filter = new IntentFilter(GameView.CUSTOM_ACTION);
+        IntentFilter filter = new IntentFilter(GameView1.CUSTOM_ACTION);
         registerReceiver(customReceiver, filter);
 
         gameView = findViewById(R.id.gameView);
@@ -57,5 +62,15 @@ public class CleantopyaActivity extends AppCompatActivity {
         super.onDestroy();
         // BroadcastReceiver 해제
         unregisterReceiver(customReceiver);
+    }*/
+
+    protected void onCreate(Bundle savedInstanceState) {
+        Scene.drawsDebugInfo = BuildConfig.DEBUG;
+        Metrics.setGameSize(9, 16);
+        super.onCreate(savedInstanceState);
+        // Scene.drawsDebugInfo 변경 시점에 주의한다.
+        // new GameView() 가 호출되는 super.onCreate() 보다 이전에 해야 한다.
+        new MainScene().push();
     }
+
 }

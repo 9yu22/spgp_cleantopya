@@ -23,7 +23,7 @@ public class GameView extends View implements Choreographer.FrameCallback {
 
     //////////////////////////////////////////////////
     // Debug Helper
-    private Paint borderPaint;
+/*  private Paint borderPaint;
     private Paint fpsPaint;
     private void initDebugObjects() {
         borderPaint = new Paint();
@@ -34,7 +34,7 @@ public class GameView extends View implements Choreographer.FrameCallback {
         fpsPaint = new Paint();
         fpsPaint.setColor(Color.BLUE);
         fpsPaint.setTextSize(100f);
-    }
+    }*/
 
     //////////////////////////////////////////////////
     // View Constructor
@@ -43,9 +43,9 @@ public class GameView extends View implements Choreographer.FrameCallback {
 
         setFullScreen();
 
-        if (BuildConfig.DEBUG) {
+        /*if (BuildConfig.DEBUG) {
             initDebugObjects();
-        }
+        }*/
 
         initGame();
         scheduleUpdate();
@@ -98,17 +98,17 @@ public class GameView extends View implements Choreographer.FrameCallback {
         }
         canvas.save();
         Metrics.concat(canvas);
-        if (BuildConfig.DEBUG) {
+        /*if (BuildConfig.DEBUG) {
             canvas.drawRect(Metrics.borderRect, borderPaint);
-        }
+        }*/
         scene.draw(canvas);
         canvas.restore();
 
-        if (BuildConfig.DEBUG) {
+        /*if (BuildConfig.DEBUG) {
             int fps = (int) (1.0f / elapsedSeconds);
             int count = scene.count();
             canvas.drawText("FPS: " + fps + " objs: " + count, 100f, 200f, fpsPaint);
-        }
+        }*/
     }
 
     //////////////////////////////////////////////////

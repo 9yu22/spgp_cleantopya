@@ -6,11 +6,12 @@ import com.example.myapplication.framework.view.Metrics;
 
 public class VertScrollBackground extends Sprite {
     private final float speed;
-    private final float height;
+    //private final float height;
     public VertScrollBackground(int bitmapResId, float speed) {
         super(bitmapResId);
-        this.height = bitmap.getHeight() * Metrics.width / bitmap.getWidth();
-        setPosition(Metrics.width / 2, Metrics.height / 2, Metrics.width, height);
+        //this.height = bitmap.getHeight() * Metrics.width / bitmap.getWidth();
+        //setPosition(Metrics.width / 2, Metrics.height / 2, Metrics.width, height);
+        setPosition(0,0, Metrics.width, Metrics.height);
         this.speed = speed;
     }
     @Override

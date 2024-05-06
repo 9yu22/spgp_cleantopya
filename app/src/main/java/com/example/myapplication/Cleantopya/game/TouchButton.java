@@ -7,33 +7,36 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.Log;
 
-public class TouchButton {
+import com.example.myapplication.R;
+import com.example.myapplication.framework.interfaces.IGameObject;
+import com.example.myapplication.framework.objects.Sprite;
+import com.example.myapplication.framework.res.BitmapPool;
+import com.example.myapplication.framework.view.Metrics;
+
+public class TouchButton extends Sprite {
+
     //touch 영역
-    float x;
-    float y;
+    float buttonx;
+    float buttony;
     Paint paint;
     int count=0;
+    private RectF buttonRect = new RectF();
 
     //생성자
-    public TouchButton(float x, float y, int color){
-
-        paint = new Paint();
-        if(color==1) {
-            paint.setColor(Color.parseColor("#F91D00"));
-        }
-        else if(color==2){
-            paint.setColor(Color.parseColor("#FFD800"));
-        }
-        else if(color==3){
-            paint.setColor(Color.parseColor("#0070E8"));
-        }
-        paint.setStyle(Paint.Style.FILL);
-        this.x = x;
-        this.y = y;
+    public TouchButton(int bitmapResId, float x, float y){
+        super(bitmapResId);
+        buttonx = x;
+        buttony = y;
     }
+    @Override
+    public void update(float elapsedSeconds) {
 
-    public void Draw(Canvas canvas){
-        canvas.drawCircle(x, y, 1.5f, paint);
+    }
+    @Override
+    public void draw(Canvas canvas){
+        buttonRect.set(buttonx, buttony, buttonx+2, buttony+2);
+        canvas.drawBitmap(bitmap, null, buttonRect, null);
+
     }
 
     public boolean isClicked(float touchX, float touchY) {
