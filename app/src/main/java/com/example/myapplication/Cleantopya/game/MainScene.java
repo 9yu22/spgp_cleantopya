@@ -17,6 +17,7 @@ public class MainScene extends Scene {
 
     int count;
     int randomGoalCount = (int)(Math.random()*10)+10;
+    boolean yellowVisible = false;
 
     TouchButton redButton;
     TouchButton yellowButton;
@@ -34,13 +35,12 @@ public class MainScene extends Scene {
 
         add(Layer.bg, new VertScrollBackground(R.mipmap.background, 0));
 
-        this.redButton = new TouchButton(R.mipmap.redbutton, 0, 14);
+        this.redButton = new TouchButton(R.mipmap.red, 0, 14);
         float yellowX = 3.5f;
-        this.yellowButton = new TouchButton(R.mipmap.yellowbutton, yellowX, 14);
-        this.blueButton = new TouchButton(R.mipmap.bluebutton, 7, 14);
+        this.yellowButton = new TouchButton(R.mipmap.yellow, yellowX, 14);
+        this.blueButton = new TouchButton(R.mipmap.blue, 7, 14);
 
         add(Layer.icon, redButton);
-        add(Layer.icon, yellowButton);
         add(Layer.icon, blueButton);
 
         this.score = new Score(R.mipmap.number_24x32, Metrics.width - 0.5f, 0.5f, 0.6f);
@@ -74,9 +74,23 @@ public class MainScene extends Scene {
             }
             else {
                 Log.d("onTouchEvent", "count is End" + count);
+                yellowVisible = true;
+                addYellowButton();
             }
         }
         return true;
+    }
+
+    private void addYellowButton() {
+        if (yellowVisible) {
+            add(Layer.icon, yellowButton);
+        }
+    }
+
+    private void removeYellowButton() {
+        if (!yellowVisible) {
+            remove(Layer.icon, yellowButton);
+        }
     }
 
 }
