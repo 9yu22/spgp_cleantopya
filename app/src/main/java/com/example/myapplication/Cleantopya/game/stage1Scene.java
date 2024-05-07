@@ -1,7 +1,5 @@
 package com.example.myapplication.Cleantopya.game;
 
-import android.content.Intent;
-import android.graphics.Canvas;
 import android.util.Log;
 import android.view.MotionEvent;
 
@@ -11,8 +9,8 @@ import com.example.myapplication.framework.objects.VertScrollBackground;
 import com.example.myapplication.framework.scene.Scene;
 import com.example.myapplication.framework.view.Metrics;
 
-public class MainScene extends Scene {
-    private static final String TAG = MainScene.class.getSimpleName();
+public class stage1Scene extends Scene {
+    private static final String TAG = stage1Scene.class.getSimpleName();
     Score score; // package private
 
     int count;
@@ -32,7 +30,7 @@ public class MainScene extends Scene {
     public enum Layer {
         bg, icon, bullet, player, ui, controller, COUNT
     }
-    public MainScene() {
+    public stage1Scene() {
         //Metrics.setGameSize(16, 16);
         initLayers(Layer.COUNT);
 
@@ -79,6 +77,9 @@ public class MainScene extends Scene {
                 Log.d("onTouchEvent", "count is End" + count);
                 yellowVisible = true;
                 addYellowButton();
+            }
+            if(yellowButton.isClicked(touchx, touchy)){
+                new stage2Scene().push();
             }
         }
         return true;
