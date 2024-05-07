@@ -16,8 +16,6 @@ public class stage1Scene extends Scene {
     int count;
     int randomGoalCount = (int)(Math.random()*10)+10;
     boolean yellowVisible = false;
-    long gameStartTime = System.currentTimeMillis(); // 게임 시작 시간 기록
-
     TouchButton redButton;
     TouchButton yellowButton;
     TouchButton blueButton;
@@ -51,7 +49,7 @@ public class stage1Scene extends Scene {
         score.setScore(0);
         add(Layer.ui, score);
 
-        this.dust = new Dust(1.f, 1.f);
+        this.dust = new Dust(5.f, 5.f);
         add(Layer.dust, dust);
     }
 
@@ -101,9 +99,6 @@ public class stage1Scene extends Scene {
     private void addYellowButton() {
         if (yellowVisible) {
             add(Layer.icon, yellowButton);
-            long yellowButtonOnTime = System.currentTimeMillis();
-            long elapsedTime = yellowButtonOnTime - gameStartTime; // yellowButton이 켜진 시간까지의 경과 시간 (밀리초 단위)
-            Log.d(TAG, "Elapsed Seconds: " + elapsedTime);
         }
     }
 
