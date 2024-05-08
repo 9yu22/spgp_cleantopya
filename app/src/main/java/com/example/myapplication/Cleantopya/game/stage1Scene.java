@@ -5,10 +5,14 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.framework.interfaces.IGameObject;
 import com.example.myapplication.framework.objects.Score;
+import com.example.myapplication.framework.objects.Sprite;
 import com.example.myapplication.framework.objects.VertScrollBackground;
 import com.example.myapplication.framework.scene.Scene;
 import com.example.myapplication.framework.view.Metrics;
+
+import java.util.ArrayList;
 
 public class stage1Scene extends Scene {
     private static final String TAG = stage1Scene.class.getSimpleName();
@@ -22,14 +26,20 @@ public class stage1Scene extends Scene {
     Score score; // package private
     float previousTime;
     float totalElapsedTime;
-    Dust dust;
+    Dust dust1;
+    Dust dust2;
+    Dust dust3;
+    Dust dust4;
+    Dust dust5;
+
+    Sprite cushion;
 
     public int getScore() {
         return score.getScore();
     }
 
     public enum Layer {
-        bg, icon, dust, player, ui, controller, COUNT
+        bg, icon, object, player, ui, controller, COUNT
     }
     public stage1Scene() {
         //Metrics.setGameSize(16, 16);
@@ -45,12 +55,25 @@ public class stage1Scene extends Scene {
         add(Layer.icon, redButton);
         add(Layer.icon, blueButton);
 
+        this.cushion = new Sprite(R.mipmap.cushion);
+        cushion.setPosition(4.5f, 7.f, 4.5f);
+        add(Layer.player, cushion);
+
         this.score = new Score(R.mipmap.number_24x32, Metrics.width - 0.5f, 0.5f, 0.6f);
         score.setScore(0);
         add(Layer.ui, score);
 
-        this.dust = new Dust(5.f, 5.f);
-        add(Layer.dust, dust);
+        this.dust1 = new Dust(2.5f, 5.f, 0.2f, 0.1f);
+        this.dust2 = new Dust(3.f, 5.f, 0.8f, 0.7f);
+        this.dust3 = new Dust(5.f, 5.f, 0.6f, 0.5f);
+        this.dust4 = new Dust(7.f, 5.f, 0.4f, 0.3f);
+        this.dust5 = new Dust(7.5f, 5.f, 1.0f, 0.9f);
+
+        add(Layer.object, dust1);
+        add(Layer.object, dust2);
+        add(Layer.object, dust3);
+        add(Layer.object, dust4);
+        add(Layer.object, dust5);
     }
 
     public void addScore(int amount) {
