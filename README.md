@@ -78,3 +78,32 @@
  9주차(5/30 - 6/5)(6/6 - 6/12)  - 피드백 및 수정, 3차 발표 준비
 
     *6/14 3차발표
+
+https://youtu.be/ZYuXUSFj6Ow
+
+# 중간발표
+
+버튼을 빠르게 클릭하는 아케이드형식의 모바일 게임
+
+1단계 스테이지 구현: 게임이 시작되면 랜덤으로 목표 카운트가 지정되며, 카운트만큼 버튼을 모두 입력했으면 노란색 버튼이 생긴다. 노란색 버튼을 클릭하면 다음 스테이지로 넘어간다. 버튼1회 입력은 카운트1번과 같으며, 카운트가 5번씩 증가할때마다 먼지가 하나씩 떨어진다. 
+
+<img src="https://postfiles.pstatic.net/MjAyNDA1MDlfMjMx/MDAxNzE1MjMyOTg4Mzc5.a4KybelV7AoZheNVzuzus_FKglGlSnTk161YmJe306sg.wseJXWmIc7FPjuFXiDhkibDntcVl4iZaPO0D9yZUulIg.PNG/image.png?type=w773" height = "400">
+
+## 항목별 진행 척도
+|항목 (진행율)|구현내용|부족한내용|
+|---|---|---|
+|1단계 (90%)|버튼입력, 먼지애니메이션, Scene전환|먼지객체들의 효율적인 관리|
+|2단계 (5%)|background, 버튼띄우기|아이템 생성, 입력에 따른 아이템 제거, 잘못된 입력시 화면흔들림|
+|기타 (5%)|시간측정|카운트다운, 점수판, 언어지원, 사운드|
+
+|주차|커밋횟수|일일 커밋 그래프|
+|:---:|:---:|---|
+|1주차 |7| <img src="https://postfiles.pstatic.net/MjAyNDA1MDlfMjkx/MDAxNzE1MjMzMjUwMjIz.sYXZIlRVPKlynrpLnPgk1TG_gnQiqWmg3EcoegHONp0g.bdaUaNhR2vkilONQo-1-rUrsshrtZCn13d_Xz4NYhuEg.PNG/image.png?type=w773" height = "150"> |
+|2주차 |10| <img src="https://postfiles.pstatic.net/MjAyNDA1MDlfMSAg/MDAxNzE1MjM4MDk2ODY1.B2XiwC-6xv4pTL8xvaN5XN_aWwRAXluZAP2y58hNBXEg.X--RFH2UAPzh1ScQ7B3rD-5s_TDMz26j6rc0ZvRrircg.PNG/image.png?type=w773" height = "150">|
+|3주차 |2| <img src="https://postfiles.pstatic.net/MjAyNDA1MDlfMjMy/MDAxNzE1MjM4MTEyNTIw.sxg0J-3Om3JSs_jBgCz3vsSJp4cgyV1gwVmh8iU1J8Mg.hmXDBXNoJroLOutCn_7D-TMYPXzKe0v9Use2t2XuS0Ag.PNG/image.png?type=w773" height = "150">|
+|4주차 |2| <img src="https://postfiles.pstatic.net/MjAyNDA1MDlfMTYy/MDAxNzE1MjM4MTI1OTM0.a3P_7tBYGEg7oGdO03mf6aFIvppP6MDUUVush77l8BYg.1Cfmok9sPZ5on3iKbjJcwOv4wPDtd29s_UUo_BNMMHAg.PNG/image.png?type=w773" height = "150"> 
+|5주차 |9| <img src="https://postfiles.pstatic.net/MjAyNDA1MDlfMTcw/MDAxNzE1MjMzMzczNjg5.UMt8vBw-YGHDpFdbO9yhf0nhrGtfjaY91GHUvbXWt0Yg.q9cMwq-DTI40ZugHL98QqVFz02EttC-0ceki9hcgAhAg.PNG/image.png?type=w773" height = "150">|
+
+*목표 중 변경된 사항은 없으며, 주차별 목표에 따라 '2단계 스테이지 구현'을 진행하고 있습니다.
+
+## GameObject - TouchButton, Dust
