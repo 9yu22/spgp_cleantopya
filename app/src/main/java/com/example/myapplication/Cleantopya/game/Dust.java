@@ -12,18 +12,17 @@ public class Dust extends Sprite{
     private static final float SPEED = 1.0f;
     private int power;
 
-    public Dust(float x, float y, float speed, float acceleration) {
+    public Dust(float x, float y) {
         super(R.mipmap.dust);
         setPosition(x, y, dust_WIDTH, dust_HEIGHT);
-        dy = +speed*acceleration;
     }
 
     @Override
     public void update(float elapsedSeconds) {
         super.update(elapsedSeconds);
-/*        if (dstRect.bottom < 0) {
-            Scene.top().remove(stage1Scene.Layer.bullet, this);
-        }*/
     }
 
+    public void move(float speed){
+        dy = +speed;
+    }
 }
