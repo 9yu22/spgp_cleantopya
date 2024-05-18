@@ -9,6 +9,7 @@ import com.example.myapplication.framework.interfaces.IGameObject;
 import com.example.myapplication.framework.objects.Score;
 import com.example.myapplication.framework.objects.Sprite;
 import com.example.myapplication.framework.objects.VertScrollBackground;
+import com.example.myapplication.framework.res.Sound;
 import com.example.myapplication.framework.scene.Scene;
 import com.example.myapplication.framework.view.Metrics;
 
@@ -101,9 +102,11 @@ public class stage1Scene extends Scene {
             if(count<randomGoalCount) {
                 if (redButton.isClicked(touchx, touchy)) {
                     count++;
+                    Sound.playEffect(redButton.getSoundResId());
                 }
                 if (blueButton.isClicked(touchx, touchy)) {
                     count++;
+                    Sound.playEffect(blueButton.getSoundResId());
                 }
                 Log.d("onTouchEvent", "count" + count);
             }
@@ -141,5 +144,22 @@ public class stage1Scene extends Scene {
         if(count>25){
             dust5.move(5.f);
         }
+    }
+
+    @Override
+    protected void onStart() {
+        Sound.playMusic(R.raw.main);
+    }
+    @Override
+    protected void onPause() {
+        Sound.pauseMusic();
+    }
+    @Override
+    protected void onResume() {
+        Sound.resumeMusic();
+    }
+    @Override
+    protected void onEnd() {
+        Sound.stopMusic();
     }
 }

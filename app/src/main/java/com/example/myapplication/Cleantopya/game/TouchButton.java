@@ -36,6 +36,7 @@ public class TouchButton extends Sprite {
     public void draw(Canvas canvas){
         buttonRect.set(buttonx, buttony, buttonx+2, buttony+2);
         canvas.drawBitmap(bitmap, null, buttonRect, null);
+
     }
 
     public boolean isClicked(float touchX, float touchY) {
@@ -57,5 +58,9 @@ public class TouchButton extends Sprite {
 
     public int getCount() {
         return count;
+    }
+
+    public int getSoundResId() {
+        return R.raw.jelly;
     }
 }
