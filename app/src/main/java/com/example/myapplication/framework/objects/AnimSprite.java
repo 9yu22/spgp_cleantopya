@@ -32,7 +32,7 @@ public class AnimSprite extends Sprite {
         if (frameCount == 0) {
             this.frameWidth = imageHeight;
             this.frameHeight = imageHeight;
-            this.frameCount = imageWidth / imageHeight;
+            this.frameCount = 1;
         } else {
             this.frameWidth = imageWidth / frameCount;
             this.frameHeight = imageHeight;
