@@ -3,7 +3,9 @@ package com.example.myapplication.Cleantopya.game;
 import android.graphics.Canvas;
 import android.util.Log;
 
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
 import com.example.myapplication.framework.interfaces.IGameObject;
 import com.example.myapplication.framework.scene.Scene;
@@ -28,9 +30,23 @@ public class ObjectGenerator implements IGameObject {
         Scene scene = Scene.top();
         if (scene == null) return;
         int randomItem = random.nextInt(3)+1;
+        Set<Integer> availableKs = new HashSet<>();
+        availableKs.add(0);
+        availableKs.add(1);
+        availableKs.add(2);
         for (int i = 0; i < randomItem; i++) {
             int level = random.nextInt(3);
-            scene.add(stage2Scene.Layer.enemy, HomeObject.get(level, i));
+
+            // 랜덤으로 Set에서 값 하나 꺼내기
+            int k = availableKs.stream()
+                    .skip(random.nextInt(availableKs.size()))
+                    .findFirst()
+                    .orElse(1);
+
+            // Set에서 해당 값 제거
+            availableKs.remove(k);
+
+            scene.add(stage2Scene.Layer.enemy, HomeObject.get(level, k));
         }
     }
 
