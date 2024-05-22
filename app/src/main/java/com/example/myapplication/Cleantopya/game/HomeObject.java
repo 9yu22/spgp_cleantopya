@@ -13,7 +13,7 @@ import com.example.myapplication.framework.scene.Scene;
 import com.example.myapplication.framework.util.Gauge;
 import com.example.myapplication.framework.view.Metrics;
 
-public class HomeObject extends AnimSprite implements IBoxCollidable, IRecyclable {
+public class HomeObject extends AnimSprite implements IRecyclable {
     private static final float SPEED = 3.0f;
     private static final float RADIUS = 0.9f;
     private static final int[] resIds = {
@@ -24,7 +24,6 @@ public class HomeObject extends AnimSprite implements IBoxCollidable, IRecyclabl
     protected RectF collisionRect = new RectF();
     private int level;
     private int life, maxLife;
-    protected static Gauge gauge = new Gauge(0.1f, R.color.enemy_gauge_fg, R.color.enemy_gauge_bg);
 
     private HomeObject(int level, int index) {
         super(0, 0);
@@ -36,7 +35,7 @@ public class HomeObject extends AnimSprite implements IBoxCollidable, IRecyclabl
         this.level = level;
         this.life = this.maxLife = (level + 1) * 10;
         setAnimationResource(resIds[level], ANIM_FPS);
-        setPosition(Metrics.width / 10 * (2 * index + 1), -RADIUS, RADIUS);
+        setPosition(Metrics.width / 10 * (4 * index + 1), -RADIUS, RADIUS);
     }
 
     public static HomeObject get(int level, int index) {
@@ -53,8 +52,7 @@ public class HomeObject extends AnimSprite implements IBoxCollidable, IRecyclabl
         if (dstRect.top > Metrics.height) {
             Scene.top().remove(stage2Scene.Layer.enemy, this);
         }
-        collisionRect.set(dstRect);
-        collisionRect.inset(0.11f, 0.11f);
+
     }
 
     @Override
@@ -65,13 +63,7 @@ public class HomeObject extends AnimSprite implements IBoxCollidable, IRecyclabl
         float width = dstRect.width() * 0.7f;
         canvas.translate(x - width / 2, dstRect.bottom);
         canvas.scale(width, width);
-        gauge.draw(canvas, (float)life / maxLife);
         canvas.restore();
-    }
-
-    @Override
-    public RectF getCollisionRect() {
-        return collisionRect;
     }
 
     @Override

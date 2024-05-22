@@ -27,14 +27,10 @@ public class ObjectGenerator implements IGameObject {
         Scene scene = Scene.top();
         if (scene == null) return;
 
-        wave++;
-        Log.v(TAG, "Generating: wave " + wave);
-        //for (int i = 0; i < 5; i++) {
-            //int level = (wave + 15) / 10 - random.nextInt(3);
-            //if (level < 0) level = 0;
-            //if (level > HomeObject.MAX_LEVEL) level = HomeObject.MAX_LEVEL;
-            scene.add(stage2Scene.Layer.enemy, HomeObject.get(1, 1));
-        //}
+        for (int i = 0; i < 3; i++) {
+            int level = random.nextInt(3);
+            scene.add(stage2Scene.Layer.enemy, HomeObject.get(level, i));
+        }
     }
 
     @Override
