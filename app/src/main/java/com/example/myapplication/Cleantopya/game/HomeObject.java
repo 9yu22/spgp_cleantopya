@@ -14,7 +14,7 @@ import com.example.myapplication.framework.util.Gauge;
 import com.example.myapplication.framework.view.Metrics;
 
 public class HomeObject extends AnimSprite implements IRecyclable {
-    private static final float SPEED = 3.0f;
+    private static final float SPEED = 5.0f;
     private static final float RADIUS = 0.9f;
     private static final int[] resIds = {
             R.mipmap.clock, R.mipmap.fan, R.mipmap.snuggle

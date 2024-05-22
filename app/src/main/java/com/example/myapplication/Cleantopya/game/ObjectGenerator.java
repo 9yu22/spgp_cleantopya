@@ -16,18 +16,19 @@ public class ObjectGenerator implements IGameObject {
     private int wave;
     @Override
     public void update(float elapsedSeconds) {
-        enemyTime -= elapsedSeconds;
+        enemyTime -= elapsedSeconds*5;
         if (enemyTime < 0) {
             generate();
             enemyTime = GEN_INTERVAL;
         }
     }
 
+
     private void generate() {
         Scene scene = Scene.top();
         if (scene == null) return;
-
-        for (int i = 0; i < 3; i++) {
+        int randomItem = random.nextInt(3)+1;
+        for (int i = 0; i < randomItem; i++) {
             int level = random.nextInt(3);
             scene.add(stage2Scene.Layer.enemy, HomeObject.get(level, i));
         }
