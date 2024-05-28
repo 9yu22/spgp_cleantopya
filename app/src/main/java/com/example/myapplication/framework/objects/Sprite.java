@@ -51,4 +51,9 @@ public class Sprite implements IGameObject {
     public void draw(Canvas canvas) {
         canvas.drawBitmap(bitmap, srcRect, dstRect, null);
     }
+
+    public void updateY(float y) {
+        this.y = y;
+        dstRect.offset(0, y);
+    }
 }

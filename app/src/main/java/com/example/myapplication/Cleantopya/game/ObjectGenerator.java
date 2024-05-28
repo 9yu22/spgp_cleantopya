@@ -29,14 +29,14 @@ public class ObjectGenerator implements IGameObject {
     private void generate() {
         Scene scene = Scene.top();
         if (scene == null) return;
-        int randomItem = random.nextInt(3)+1;
+        /*int randomItem = random.nextInt(3)+1;
         Set<Integer> availableKs = new HashSet<>();
         availableKs.add(0);
         availableKs.add(1);
         availableKs.add(2);
+
         for (int i = 0; i < randomItem; i++) {
             int level = random.nextInt(3);
-
             // 랜덤으로 Set에서 값 하나 꺼내기
             int k = availableKs.stream()
                     .skip(random.nextInt(availableKs.size()))
@@ -44,10 +44,11 @@ public class ObjectGenerator implements IGameObject {
                     .orElse(1);
 
             // Set에서 해당 값 제거
-            availableKs.remove(k);
+            availableKs.remove(k);*/
 
-            scene.add(stage2Scene.Layer.enemy, HomeObject.get(level, k));
-        }
+            scene.add(stage2Scene.Layer.enemy, HomeObjectsLine.get());
+
+
     }
 
     @Override

@@ -55,23 +55,23 @@ public class HomeObject extends AnimSprite implements IBoxCollidable, IRecyclabl
     public void update(float elapsedSeconds) {
         super.update(elapsedSeconds);
 
-        // Check if the object has reached the bottom or needs to be stacked
-        if (dstRect.top >= Metrics.height - RADIUS - 2 || shouldStopAndStack()) {
-            dy = 0;
-
-            // Update the y position to stack on top of the previous stopped object
-            if (!stoppedObjects.contains(this)) {
-                float topY = Metrics.height - RADIUS;
-                for (HomeObject obj : stoppedObjects) {
-                    topY -= obj.dstRect.height();
-                }
-                dy = topY - RADIUS;
-                stoppedObjects.add(this);
-            }
-        }
-
-        collisionRect.set(dstRect);
-        collisionRect.inset(0.11f, 0.11f);
+//        // Check if the object has reached the bottom or needs to be stacked
+//        if (dstRect.top >= Metrics.height - RADIUS - 4 || shouldStopAndStack()) {
+//            dy = 0;
+//
+//            // Update the y position to stack on top of the previous stopped object
+//            if (!stoppedObjects.contains(this)) {
+//                float topY = Metrics.height - RADIUS;
+//                for (HomeObject obj : stoppedObjects) {
+//                    topY -= obj.dstRect.height();
+//                }
+//                dy = topY - RADIUS;
+//                stoppedObjects.add(this);
+//            }
+//        }
+//
+//        collisionRect.set(dstRect);
+//        collisionRect.inset(0.11f, 0.11f);
     }
 
     private boolean shouldStopAndStack() {
