@@ -13,7 +13,7 @@ import com.example.myapplication.framework.scene.Scene;
 import com.example.myapplication.framework.util.Gauge;
 import com.example.myapplication.framework.view.Metrics;
 
-public class HomeObject extends AnimSprite implements IRecyclable {
+public class HomeObject extends AnimSprite implements IBoxCollidable, IRecyclable {
     private static final float SPEED = 5.0f;
     private static final float RADIUS = 0.9f;
     private static final int[] resIds = {
@@ -49,10 +49,14 @@ public class HomeObject extends AnimSprite implements IRecyclable {
     @Override
     public void update(float elapsedSeconds) {
         super.update(elapsedSeconds);
-        if (dstRect.top > Metrics.height) {
-            Scene.top().remove(stage2Scene.Layer.enemy, this);
+        //if (dstRect.top > Metrics.height) {
+        //    Scene.top().remove(stage2Scene.Layer.enemy, this);
+        //}
+        if (dstRect.top >= Metrics.height - RADIUS * 4) {
+            dy = 0;
         }
-
+        collisionRect.set(dstRect);
+        collisionRect.inset(0.11f, 0.11f);
     }
 
     @Override
@@ -78,5 +82,10 @@ public class HomeObject extends AnimSprite implements IRecyclable {
     public boolean decreaseLife(int power) {
         life -= power;
         return life <= 0;
+    }
+
+    @Override
+    public RectF getCollisionRect() {
+        return collisionRect;
     }
 }

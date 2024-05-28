@@ -21,7 +21,6 @@ public class TouchButton extends Sprite {
     Paint paint;
     int count=0;
     private RectF buttonRect = new RectF();
-    private RectF shadowRect = new RectF();
 
     //생성자
     public TouchButton(int bitmapResId, float x, float y){
