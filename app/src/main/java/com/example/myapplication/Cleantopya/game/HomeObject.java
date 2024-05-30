@@ -16,15 +16,15 @@ import java.util.ArrayList;
 
 public class HomeObject extends AnimSprite implements IBoxCollidable, IRecyclable {
     private static final float SPEED = 5.0f;
-    private static final float RADIUS = 0.9f;
+    private static final float RADIUS = 1.0f;
     private static final int[] resIds = {
             R.mipmap.clock, R.mipmap.fan, R.mipmap.snuggle
      };
     public static final float ANIM_FPS = 10.0f;
     protected RectF collisionRect = new RectF();
     private int level;
-    private int life, maxLife;
-    
+    private int life;
+
     private HomeObject(int level, int index) {
         super(0, 0);
         init(level, index);
@@ -33,16 +33,16 @@ public class HomeObject extends AnimSprite implements IBoxCollidable, IRecyclabl
 
     private void init(int level, int index) {
         this.level = level;
-        this.life = this.maxLife = (level + 1) * 10;
+        this.life = 1;
         setAnimationResource(resIds[level], ANIM_FPS);
         setPosition(Metrics.width / 10 * (4 * index + 1), -RADIUS, RADIUS);
     }
 
     public static HomeObject get(int level, int index) {
-        HomeObject enemy = (HomeObject) RecycleBin.get(HomeObject.class);
-        if (enemy != null) {
-            enemy.init(level, index);
-            return enemy;
+        HomeObject furnitureAsset = (HomeObject) RecycleBin.get(HomeObject.class);
+        if (furnitureAsset != null) {
+            furnitureAsset.init(level, index);
+            return furnitureAsset;
         }
         return new HomeObject(level, index);
     }
@@ -69,11 +69,6 @@ public class HomeObject extends AnimSprite implements IBoxCollidable, IRecyclabl
 
     public int getScore() {
         return (level + 1) * 100;
-    }
-
-    public boolean decreaseLife(int power) {
-        life -= power;
-        return life <= 0;
     }
 
     @Override

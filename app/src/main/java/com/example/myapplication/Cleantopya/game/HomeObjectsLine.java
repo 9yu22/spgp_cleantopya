@@ -18,10 +18,10 @@ import com.example.myapplication.framework.view.Metrics;
 public class HomeObjectsLine implements IGameObject, IRecyclable {
     private HomeObject[] row = new HomeObject[3];
     private final Random random = new Random();
-    private static final float RADIUS = 0.9f;
+    private static final float RADIUS = 1.0f;
     private RectF dstRect = new RectF();
-    protected RectF collisionRect = new RectF();
     protected float y, dy;
+    protected float rectRightBottom = 0.3f;
     private static ArrayList<HomeObjectsLine> stoppedObjects = new ArrayList<>();
 
     public static HomeObjectsLine get() {
@@ -36,25 +36,6 @@ public class HomeObjectsLine implements IGameObject, IRecyclable {
         init();
     }
     private void init() {
-        /*int randomItem = random.nextInt(3)+1;
-        Set<Integer> availableKs = new HashSet<>();
-        availableKs.add(0);
-        availableKs.add(1);
-        availableKs.add(2);
-
-        for (int i = 0; i < randomItem; i++) {
-            int level = random.nextInt(3);
-            // 랜덤으로 Set에서 값 하나 꺼내기
-            int k = availableKs.stream()
-                    .skip(random.nextInt(availableKs.size()))
-                    .findFirst()
-                    .orElse(1);
-
-            // Set에서 해당 값 제거
-            availableKs.remove(k);
-
-            row[i] = HomeObject.get(level, k);
-        }*/
         int fixIndex = random.nextInt(3);
         for (int i = 0; i < 3; i++){
             if(i!= fixIndex) {
@@ -63,9 +44,9 @@ public class HomeObjectsLine implements IGameObject, IRecyclable {
                 }
             }
             int level = random.nextInt(3);
-            row[i] = HomeObject.get(level, random.nextInt(3));
+            row[i] = HomeObject.get(level, i);
         }
-        dstRect.set(0,-2,9,0);
+        dstRect.set(0,-2,9,rectRightBottom);
         dy = 3.0f;
     }
 
@@ -75,11 +56,9 @@ public class HomeObjectsLine implements IGameObject, IRecyclable {
         y += timedDy;
         dstRect.offset(0, timedDy);
 
-        // Check if the object has reached the bottom or needs to be stacked
         if (dstRect.top >= Metrics.height - RADIUS - 4 || shouldStopAndStack()) {
             dy = 0;
 
-            // Update the y position to stack on top of the previous stopped object
             if (!stoppedObjects.contains(this)) {
                 float topY = Metrics.height - RADIUS;
                 for (HomeObjectsLine obj : stoppedObjects) {
