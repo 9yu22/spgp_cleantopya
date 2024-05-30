@@ -14,10 +14,8 @@ public class CleantopyaActivity extends GameActivity {
         Scene.drawsDebugInfo = BuildConfig.DEBUG;
         Metrics.setGameSize(9, 16);
         super.onCreate(savedInstanceState);
-        // Scene.drawsDebugInfo 변경 시점에 주의한다.
-        // new GameView() 가 호출되는 super.onCreate() 보다 이전에 해야 한다.
-        StartVideo video = new StartVideo(this);
-        video.start();
+        //StartVideo video = new StartVideo(this);
+        //video.start();
         new stage1Scene().push();
     }
 

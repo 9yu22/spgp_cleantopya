@@ -4,8 +4,10 @@ import android.util.Log;
 
 import com.example.myapplication.R;
 import com.example.myapplication.framework.interfaces.IGameObject;
+import com.example.myapplication.framework.objects.Score;
 import com.example.myapplication.framework.objects.VertScrollBackground;
 import com.example.myapplication.framework.scene.Scene;
+import com.example.myapplication.framework.view.Metrics;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -14,6 +16,8 @@ public class stage2Scene extends Scene {
     TouchButton redButton;
     TouchButton yellowButton;
     TouchButton blueButton;
+    Score score;
+    float totalElapsedTime;
     public enum Layer {
         bg, enemy, icon, ui, controller, COUNT
     }
@@ -30,11 +34,23 @@ public class stage2Scene extends Scene {
         add(stage2Scene.Layer.icon, blueButton);
         add(stage2Scene.Layer.icon, yellowButton);
 
+        this.score = new Score(R.mipmap.number_24x32, Metrics.width - 0.5f, 0.5f, 0.6f);
+        score.setScore(0);
+        add(stage1Scene.Layer.ui, score);
+
         add(stage2Scene.Layer.controller, new ObjectGenerator());
+    }
+    public void addScore(int amount) {
+        score.add(amount);
     }
     @Override
     public void update(float elapsedSeconds) {
         super.update(elapsedSeconds);
+        totalElapsedTime += elapsedSeconds;
+        if(totalElapsedTime>=1) {
+            addScore(1);
+            totalElapsedTime--;
+        }
     }
 
 }

@@ -2,8 +2,6 @@ package com.example.myapplication.Cleantopya.game;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.Log;
 
@@ -15,11 +13,8 @@ import com.example.myapplication.framework.view.Metrics;
 
 public class TouchButton extends Sprite {
 
-    //touch 영역
     float buttonx;
     float buttony;
-    Paint paint;
-    int count=0;
     private RectF buttonRect = new RectF();
 
     //생성자
@@ -49,15 +44,6 @@ public class TouchButton extends Sprite {
             else return false;
         }
         return false;
-    }
-
-    public void Clicked(){
-        //버튼이 눌렸을때
-        count+=1;
-    }
-
-    public int getCount() {
-        return count;
     }
 
     public int getSoundResId() {
