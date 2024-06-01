@@ -1,11 +1,13 @@
 package com.example.myapplication.Cleantopya.game;
 
 import android.util.Log;
+import android.view.MotionEvent;
 
 import com.example.myapplication.R;
 import com.example.myapplication.framework.interfaces.IGameObject;
 import com.example.myapplication.framework.objects.Score;
 import com.example.myapplication.framework.objects.VertScrollBackground;
+import com.example.myapplication.framework.res.Sound;
 import com.example.myapplication.framework.scene.Scene;
 import com.example.myapplication.framework.view.Metrics;
 
@@ -51,6 +53,25 @@ public class stage2Scene extends Scene {
             addScore(1);
             totalElapsedTime--;
         }
+    }
+
+    public boolean onTouch(MotionEvent event) {
+
+        float touchx = event.getX()/80;
+        float touchy = event.getY()/80;
+
+        if(event.getAction() == MotionEvent.ACTION_DOWN){
+            if (redButton.isClicked(touchx, touchy)) {
+                Sound.playEffect(redButton.getSoundResId());
+            }
+            if (blueButton.isClicked(touchx, touchy)) {
+                Sound.playEffect(blueButton.getSoundResId());
+            }
+            if(yellowButton.isClicked(touchx, touchy)){
+                Sound.playEffect(blueButton.getSoundResId());
+            }
+        }
+        return true;
     }
 
 }

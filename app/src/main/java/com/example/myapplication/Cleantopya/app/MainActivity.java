@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         VideoView videoview1 = findViewById(R.id.startVideo);
 
-        String uriPath2 = "android.resource://com.example.myapplication/"+R.raw.countdown; //흠
+        String uriPath2 = "android.resource://com.example.myapplication/"+R.raw.countdown;
         Uri uri2 = Uri.parse(uriPath2);
         videoview1.setVideoURI(uri2);
         videoview1.requestFocus();
