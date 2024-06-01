@@ -15,6 +15,12 @@
         android:gravity="center"
         android:layout_weight="1"
         />
+
+    <VideoView
+        android:id="@+id/startVideo"
+        android:layout_width="424dp"
+        android:layout_height="456dp" />
+
     <Button
         android:id="@+id/button_start"
         android:layout_width="wrap_content"
@@ -22,7 +28,7 @@
         android:text="GameStart"
         android:textSize="30sp"
         android:layout_gravity="center"
-
         />
+
 
 </LinearLayout>
