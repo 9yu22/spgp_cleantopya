@@ -1,6 +1,7 @@
 package com.example.myapplication.Cleantopya.game;
 
 import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.graphics.RectF;
 
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ public class HomeObjectsLine implements IGameObject, IRecyclable {
     private RectF dstRect = new RectF();
     protected float y, dy;
     protected float rectRightBottom = 0.3f;
+    private float SPEED = 3.0f;
     private static ArrayList<HomeObjectsLine> stoppedObjects = new ArrayList<>();
 
     public static HomeObjectsLine get() {
@@ -47,7 +49,7 @@ public class HomeObjectsLine implements IGameObject, IRecyclable {
             row[i] = HomeObject.get(level, i);
         }
         dstRect.set(0,-2,9,rectRightBottom);
-        dy = 3.0f;
+        dy = SPEED;
     }
 
     @Override
@@ -67,6 +69,10 @@ public class HomeObjectsLine implements IGameObject, IRecyclable {
                 dy = topY - RADIUS;
                 stoppedObjects.add(this);
             }
+        }
+        else{
+            dy = SPEED;
+            stoppedObjects.remove(this);
         }
 
         for(int i = 0; i < 3; i++){
@@ -88,12 +94,30 @@ public class HomeObjectsLine implements IGameObject, IRecyclable {
         for(int i=0;i<3;i++){
             if(row[i]!=null){
                 row[i].draw(canvas);
+
             }
         }
+        //Paint paint = new Paint();
+        //canvas.drawRect(dstRect, paint);
     }
 
     @Override
     public void onRecycle() {
+        stoppedObjects.remove(this);
+    }
 
+    public void Remove(int index){
+        if(row[index] != null){
+            //RecycleBin.collect((IRecyclable) row[index]);
+            row[index] = null;
+        }
+    }
+
+    public boolean isEmptyLine(){
+        for(int i = 0 ; i < 3; i++){
+            if(row[i] != null)
+                return false;
+        }
+        return true;
     }
 }

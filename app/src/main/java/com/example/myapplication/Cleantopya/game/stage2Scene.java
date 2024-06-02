@@ -19,6 +19,8 @@ public class stage2Scene extends Scene {
     TouchButton yellowButton;
     TouchButton blueButton;
     Score score;
+    ObjectGenerator generateManager;
+
     float totalElapsedTime;
     public enum Layer {
         bg, enemy, icon, ui, controller, COUNT
@@ -40,7 +42,8 @@ public class stage2Scene extends Scene {
         score.setScore(0);
         add(stage1Scene.Layer.ui, score);
 
-        add(stage2Scene.Layer.controller, new ObjectGenerator());
+        this.generateManager = new ObjectGenerator();
+        add(stage2Scene.Layer.controller, generateManager);
     }
     public void addScore(int amount) {
         score.add(amount);
@@ -63,12 +66,15 @@ public class stage2Scene extends Scene {
         if(event.getAction() == MotionEvent.ACTION_DOWN){
             if (redButton.isClicked(touchx, touchy)) {
                 Sound.playEffect(redButton.getSoundResId());
-            }
-            if (blueButton.isClicked(touchx, touchy)) {
-                Sound.playEffect(blueButton.getSoundResId());
+                generateManager.lineRemove(0);
             }
             if(yellowButton.isClicked(touchx, touchy)){
                 Sound.playEffect(blueButton.getSoundResId());
+                generateManager.lineRemove(1);
+            }
+            if (blueButton.isClicked(touchx, touchy)) {
+                Sound.playEffect(blueButton.getSoundResId());
+                generateManager.lineRemove(2);
             }
         }
         return true;
