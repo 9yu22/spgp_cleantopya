@@ -3,6 +3,7 @@ package com.example.myapplication.Cleantopya.game;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -17,7 +18,7 @@ import com.example.myapplication.framework.scene.Scene;
 import com.example.myapplication.framework.view.Metrics;
 
 public class HomeObjectsLine implements IGameObject, IRecyclable {
-    private HomeObject[] row = new HomeObject[3];
+    private HomeObject[] row ;
     private final Random random = new Random();
     private static final float RADIUS = 1.0f;
     private RectF dstRect = new RectF();
@@ -38,6 +39,8 @@ public class HomeObjectsLine implements IGameObject, IRecyclable {
         init();
     }
     private void init() {
+        row = new HomeObject[3];
+
         int fixIndex = random.nextInt(3);
         for (int i = 0; i < 3; i++){
             if(i!= fixIndex) {
@@ -51,29 +54,18 @@ public class HomeObjectsLine implements IGameObject, IRecyclable {
         dstRect.set(0,-2,9,rectRightBottom);
         dy = SPEED;
     }
-
     @Override
-    public void update(float elapsedSeconds) {
+    public void update(float elapsedSeconds){
+
+    }
+    public void update(float elapsedSeconds, int index) {
+        float minY = Metrics.height - RADIUS - 2 - this.dstRect.height() * index;
+        if(minY <= y)
+            return;
+
         float timedDy = dy * elapsedSeconds;
         y += timedDy;
         dstRect.offset(0, timedDy);
-
-        if (dstRect.top >= Metrics.height - RADIUS - 4 || shouldStopAndStack()) {
-            dy = 0;
-
-            if (!stoppedObjects.contains(this)) {
-                float topY = Metrics.height - RADIUS;
-                for (HomeObjectsLine obj : stoppedObjects) {
-                    topY -= obj.dstRect.height();
-                }
-                dy = topY - RADIUS;
-                stoppedObjects.add(this);
-            }
-        }
-        else{
-            dy = SPEED;
-            stoppedObjects.remove(this);
-        }
 
         for(int i = 0; i < 3; i++){
             if(row[i] == null)
@@ -81,20 +73,11 @@ public class HomeObjectsLine implements IGameObject, IRecyclable {
             row[i].updateY(timedDy);
         }
     }
-    private boolean shouldStopAndStack() {
-        for (HomeObjectsLine obj : stoppedObjects) {
-            if (RectF.intersects(this.dstRect, obj.dstRect)) {
-                return true;
-            }
-        }
-        return false;
-    }
     @Override
     public void draw(Canvas canvas) {
         for(int i=0;i<3;i++){
             if(row[i]!=null){
                 row[i].draw(canvas);
-
             }
         }
         //Paint paint = new Paint();
@@ -103,12 +86,11 @@ public class HomeObjectsLine implements IGameObject, IRecyclable {
 
     @Override
     public void onRecycle() {
-        stoppedObjects.remove(this);
     }
 
     public void Remove(int index){
         if(row[index] != null){
-            //RecycleBin.collect((IRecyclable) row[index]);
+            RecycleBin.collect((IRecyclable) row[index]);
             row[index] = null;
         }
     }

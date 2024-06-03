@@ -1,6 +1,8 @@
 package com.example.myapplication.Cleantopya.game;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.RectF;
 
 import com.example.myapplication.R;
@@ -60,6 +62,12 @@ public class HomeObject extends AnimSprite implements IBoxCollidable, IRecyclabl
         canvas.translate(x - width / 2, dstRect.bottom);
         canvas.scale(width, width);
         canvas.restore();
+
+        Paint paint = new Paint();
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setColor(Color.RED);
+        paint.setStrokeWidth(0.5f);
+        canvas.drawRect(dstRect, paint);
     }
 
     @Override

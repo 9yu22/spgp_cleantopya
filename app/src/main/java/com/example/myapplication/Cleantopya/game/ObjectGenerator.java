@@ -20,6 +20,10 @@ public class ObjectGenerator implements IGameObject {
             generate();
             furnitureGenerateTime = GEN_INTERVAL;
         }
+        int idx = 0;
+        for(HomeObjectsLine line: Lines){
+            line.update(elapsedSeconds, idx++);
+        }
     }
 
     private void generate() {
