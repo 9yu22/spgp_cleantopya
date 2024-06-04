@@ -1,6 +1,7 @@
 package com.example.myapplication.Cleantopya.game;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.Log;
@@ -25,8 +26,6 @@ public class HomeObjectsLine implements IGameObject, IRecyclable {
     protected float y, dy;
     protected float rectRightBottom = 0.3f;
     private float SPEED = 3.0f;
-    private static ArrayList<HomeObjectsLine> stoppedObjects = new ArrayList<>();
-
     public static HomeObjectsLine get() {
         HomeObjectsLine line = (HomeObjectsLine) RecycleBin.get(HomeObjectsLine.class);
         if (line != null) {
@@ -53,15 +52,23 @@ public class HomeObjectsLine implements IGameObject, IRecyclable {
         }
         dstRect.set(0,-2,9,rectRightBottom);
         dy = SPEED;
+        y=-2;
     }
     @Override
     public void update(float elapsedSeconds){
 
     }
+
+    static final float MIN_Y[] = {
+        11, 8.7f, 7, 5, 3, 1, -1,-3,-5, -7
+    };
     public void update(float elapsedSeconds, int index) {
-        float minY = Metrics.height - RADIUS - 2 - this.dstRect.height() * index;
-        if(minY <= y)
+        //float minY = Metrics.height - RADIUS - 2 - this.dstRect.height() * index;
+        float minY = MIN_Y[index];
+        if(minY <= y) {
+            y = minY;
             return;
+        }
 
         float timedDy = dy * elapsedSeconds;
         y += timedDy;
@@ -80,8 +87,11 @@ public class HomeObjectsLine implements IGameObject, IRecyclable {
                 row[i].draw(canvas);
             }
         }
-        //Paint paint = new Paint();
-        //canvas.drawRect(dstRect, paint);
+        Paint paint = new Paint();
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setColor(Color.BLUE);
+        paint.setStrokeWidth(0.1f);
+        canvas.drawRect(dstRect, paint);
     }
 
     @Override

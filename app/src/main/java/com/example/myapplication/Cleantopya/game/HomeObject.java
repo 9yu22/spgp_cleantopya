@@ -66,7 +66,7 @@ public class HomeObject extends AnimSprite implements IBoxCollidable, IRecyclabl
         Paint paint = new Paint();
         paint.setStyle(Paint.Style.STROKE);
         paint.setColor(Color.RED);
-        paint.setStrokeWidth(0.5f);
+        paint.setStrokeWidth(0.1f);
         canvas.drawRect(dstRect, paint);
     }
 
