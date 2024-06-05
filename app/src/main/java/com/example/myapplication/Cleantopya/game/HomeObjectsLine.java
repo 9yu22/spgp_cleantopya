@@ -60,10 +60,9 @@ public class HomeObjectsLine implements IGameObject, IRecyclable {
     }
 
     static final float MIN_Y[] = {
-        11, 8.7f, 7, 5, 3, 1, -1,-3,-5, -7
+        11, 8.7f, 6.4f, 4.1f, 1.8f, -0.5f
     };
     public void update(float elapsedSeconds, int index) {
-        //float minY = Metrics.height - RADIUS - 2 - this.dstRect.height() * index;
         float minY = MIN_Y[index];
         if(minY <= y) {
             y = minY;

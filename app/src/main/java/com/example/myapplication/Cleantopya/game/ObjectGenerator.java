@@ -17,7 +17,7 @@ public class ObjectGenerator implements IGameObject {
     public void update(float elapsedSeconds) {
         furnitureGenerateTime -= elapsedSeconds*5;
         if (furnitureGenerateTime < 0) {
-            if(Lines.size()<10) {
+            if(Lines.size()<6) {
                 generate();
             }
             furnitureGenerateTime = GEN_INTERVAL;
