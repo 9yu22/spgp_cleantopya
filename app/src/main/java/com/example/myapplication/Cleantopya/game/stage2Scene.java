@@ -78,7 +78,7 @@ public class stage2Scene extends Scene {
         float touchx = event.getX()/80;
         float touchy = event.getY()/80;
 
-        if(event.getAction() == MotionEvent.ACTION_DOWN){
+        if(event.getAction() == MotionEvent.ACTION_DOWN && !wrongTouch){
             if (redButton.isClicked(touchx, touchy)) {
                 Sound.playEffect(redButton.getSoundResId());
                 if(!generateManager.lineRemove(0)){
