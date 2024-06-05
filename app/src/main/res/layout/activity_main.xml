@@ -36,7 +36,7 @@
         android:fontFamily="monospace"
         android:includeFontPadding="true"
         android:padding="20dp"
-        android:text="GameStart"
+        android:text="@string/gameStart"
         android:textColor="#FF9800"
         android:textSize="24sp"
         android:textStyle="bold" />

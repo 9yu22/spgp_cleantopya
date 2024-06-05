@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Cleantopía</string>
+    <string name="gameStart">Iniciar Juego</string>
+    <string name="score">Puntuación</string>
+</resources>

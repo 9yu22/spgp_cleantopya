@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">크린토퍄</string>
+    <string name="gameStart">게임시작</string>
+    <string name="score">점수</string>
+</resources>
