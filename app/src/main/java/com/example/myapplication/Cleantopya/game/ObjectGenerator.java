@@ -15,7 +15,7 @@ public class ObjectGenerator implements IGameObject {
     private float furnitureGenerateTime = 0;
     @Override
     public void update(float elapsedSeconds) {
-        furnitureGenerateTime -= elapsedSeconds*5;
+        furnitureGenerateTime -= elapsedSeconds*7;
         if (furnitureGenerateTime < 0) {
             if(Lines.size()<6) {
                 generate();
@@ -43,15 +43,19 @@ public class ObjectGenerator implements IGameObject {
 
     }
 
-    public void lineRemove(int index){
-        if(Lines.isEmpty())
-            return;
+    public boolean lineRemove(int index){
+        if(Lines.isEmpty()){
+            return false;
+        }
+
         HomeObjectsLine line = Lines.peek();
-        line.Remove(index);
+        if(!line.Remove(index))
+            return false;
         if(line.isEmptyLine()){
             Lines.remove();
             Scene.top().remove(stage2Scene.Layer.enemy, line);
         }
+        return true;
     }
 
 }

@@ -97,11 +97,13 @@ public class HomeObjectsLine implements IGameObject, IRecyclable {
     public void onRecycle() {
     }
 
-    public void Remove(int index){
+    public boolean Remove(int index){
         if(row[index] != null){
             RecycleBin.collect((IRecyclable) row[index]);
             row[index] = null;
+            return true;
         }
+        else return false;
     }
 
     public boolean isEmptyLine(){
