@@ -35,8 +35,8 @@ public class TouchButton extends Sprite {
     }
 
     public boolean isClicked(float touchX, float touchY) {
-        //Log.d("isClicked", "touchX:"+touchX + "touchY:"+touchY);
-        //Log.d("isClicked", "x:"+ buttonx + "y:"+ buttony);
+        Log.d("isClicked", "touchX:"+touchX + "touchY:"+touchY);
+        Log.d("isClicked", "x:"+ buttonx + "y:"+ buttony);
         if (touchX < buttonx+2 && touchX > buttonx) {
             if (touchY < buttony+2 && touchY > buttony) {
                 return true;

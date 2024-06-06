@@ -94,8 +94,9 @@ public class stage1Scene extends Scene {
     @Override
     public boolean onTouch(MotionEvent event) {
 
-        float touchx = event.getX()/80;
-        float touchy = event.getY()/80;
+        float[] pts = Metrics.fromScreen(event.getX(), event.getY());
+        float touchx = pts[0];
+        float touchy = pts[1];
 
         if(event.getAction() == MotionEvent.ACTION_DOWN){
 

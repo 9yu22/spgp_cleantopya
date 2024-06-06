@@ -4,4 +4,7 @@
     <string name="gameStart">ゲームスタート</string>
     <string name="score">スコア</string>
     <string name="cleantopya">クリーントピア</string>
+    <string name="you_re_score_is">あなたのスコアは</string>
+    <string name="_00s">秒</string>
+    <string name="exit">終了</string>
 </resources>

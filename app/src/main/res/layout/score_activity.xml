@@ -1,6 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:includeFontPadding="true"
+        android:padding="10dp"
+        android:text="@string/you_re_score_is"
+        android:textColor="#A3F6CC4C"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:text="stage1"
+            android:textColor="#A3FFC000"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:text="+"
+            android:textColor="#A3FFC000"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:text="stage2"
+            android:textColor="#A3FFC000"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:text="@string/_00s"
+        android:textColor="#A3F6CC4C"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="211dp"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:text=" S "
+        android:textColor="#A3F6CC4C"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/button_exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:background="#40A2EC4C"
+        android:fontFamily="monospace"
+        android:includeFontPadding="true"
+        android:padding="20dp"
+        android:text="@string/exit"
+        android:textColor="#CBF8C1"
+        android:textSize="24sp"
+        android:textStyle="bold"
+/>
 
 </LinearLayout>

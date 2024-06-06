@@ -4,4 +4,7 @@
     <string name="gameStart">Iniciar Juego</string>
     <string name="score">Puntuación</string>
     <string name="cleantopya">Cleantopía</string>
+    <string name="you_re_score_is">Tu puntuación es</string>
+    <string name="_00s">Segundos</string>
+    <string name="exit">Salir</string>
 </resources>

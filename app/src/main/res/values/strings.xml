@@ -3,4 +3,7 @@
     <string name="gameStart">GameStart</string>
     <string name="score">SCORE</string>
     <string name="cleantopya">Cleantopya</string>
+    <string name="you_re_score_is">You\'re Score is</string>
+    <string name="_00s">00s</string>
+    <string name="exit">exit</string>
 </resources>
