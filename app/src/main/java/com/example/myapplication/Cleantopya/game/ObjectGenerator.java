@@ -1,10 +1,16 @@
 package com.example.myapplication.Cleantopya.game;
 
+import static com.example.myapplication.Cleantopya.app.CleantopyaActivity.getContext;
+
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.util.Log;
 
+import com.example.myapplication.Cleantopya.app.ScoreActivity;
 import com.example.myapplication.framework.interfaces.IGameObject;
 import com.example.myapplication.framework.scene.Scene;
+import com.example.myapplication.Cleantopya.app.CleantopyaActivity;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -14,7 +20,8 @@ public class ObjectGenerator implements IGameObject {
     private static final String TAG = ObjectGenerator.class.getSimpleName();
     public static final float GEN_INTERVAL = 5.0f;
     private float furnitureGenerateTime = 0;
-    private int gameend = 30; //총 100줄
+    private int gameend = 10; //총 100줄
+
     @Override
     public void update(float elapsedSeconds) {
         furnitureGenerateTime -= elapsedSeconds*7;
@@ -25,7 +32,7 @@ public class ObjectGenerator implements IGameObject {
                 Log.d("gameend", "gameend: " + gameend);
             }
             if(gameend == -1 && Lines.isEmpty()){
-                new ScoreScene().push();
+                method();
             }
             furnitureGenerateTime = GEN_INTERVAL;
         }
@@ -63,6 +70,13 @@ public class ObjectGenerator implements IGameObject {
             Scene.top().remove(stage2Scene.Layer.enemy, line);
         }
         return true;
+    }
+
+    public void method() {
+        Context context = getContext();
+        Intent intent = new Intent(context, ScoreActivity.class);
+        context.startActivity(intent);
+
     }
 
 }
