@@ -1,6 +1,7 @@
 package com.example.myapplication.Cleantopya.game;
 
 import android.graphics.Canvas;
+import android.util.Log;
 
 import com.example.myapplication.framework.interfaces.IGameObject;
 import com.example.myapplication.framework.scene.Scene;
@@ -13,12 +14,18 @@ public class ObjectGenerator implements IGameObject {
     private static final String TAG = ObjectGenerator.class.getSimpleName();
     public static final float GEN_INTERVAL = 5.0f;
     private float furnitureGenerateTime = 0;
+    private int gameend = 30; //총 100줄
     @Override
     public void update(float elapsedSeconds) {
         furnitureGenerateTime -= elapsedSeconds*7;
         if (furnitureGenerateTime < 0) {
-            if(Lines.size()<6) {
+            if(Lines.size()<6 && !(gameend<0)) {
                 generate();
+                gameend--;
+                Log.d("gameend", "gameend: " + gameend);
+            }
+            if(gameend == -1 && Lines.isEmpty()){
+                new ScoreScene().push();
             }
             furnitureGenerateTime = GEN_INTERVAL;
         }

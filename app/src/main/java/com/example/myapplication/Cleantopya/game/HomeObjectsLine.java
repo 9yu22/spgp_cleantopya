@@ -69,7 +69,7 @@ public class HomeObjectsLine implements IGameObject, IRecyclable {
             return;
         }
 
-        float timedDy = dy * elapsedSeconds;
+        float timedDy = dy * elapsedSeconds * 3;
         y += timedDy;
         dstRect.offset(0, timedDy);
 
@@ -86,11 +86,12 @@ public class HomeObjectsLine implements IGameObject, IRecyclable {
                 row[i].draw(canvas);
             }
         }
-        Paint paint = new Paint();
+
+        /*Paint paint = new Paint();
         paint.setStyle(Paint.Style.STROKE);
         paint.setColor(Color.BLUE);
         paint.setStrokeWidth(0.1f);
-        canvas.drawRect(dstRect, paint);
+        canvas.drawRect(dstRect, paint);*/
     }
 
     @Override

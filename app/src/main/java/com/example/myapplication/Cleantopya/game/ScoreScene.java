@@ -1,4 +1,6 @@
 package com.example.myapplication.Cleantopya.game;
 
-public class ScoreScene {
+import com.example.myapplication.framework.scene.Scene;
+
+public class ScoreScene extends Scene {
 }

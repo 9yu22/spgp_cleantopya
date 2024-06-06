@@ -17,7 +17,7 @@ import com.example.myapplication.framework.view.Metrics;
 import java.util.ArrayList;
 
 public class HomeObject extends AnimSprite implements IBoxCollidable, IRecyclable {
-    private static final float SPEED = 5.0f;
+    private static final float SPEED = 15.0f;
     private static final float RADIUS = 1.0f;
     private static final int[] resIds = {
             R.mipmap.clock, R.mipmap.fan, R.mipmap.snuggle
@@ -63,11 +63,11 @@ public class HomeObject extends AnimSprite implements IBoxCollidable, IRecyclabl
         canvas.scale(width, width);
         canvas.restore();
 
-        Paint paint = new Paint();
+        /*Paint paint = new Paint();
         paint.setStyle(Paint.Style.STROKE);
         paint.setColor(Color.RED);
         paint.setStrokeWidth(0.1f);
-        canvas.drawRect(dstRect, paint);
+        canvas.drawRect(dstRect, paint);*/
     }
 
     @Override

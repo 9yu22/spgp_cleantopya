@@ -15,7 +15,7 @@
         android:background="#A9CFFAFF"
         android:fontFamily="monospace"
         android:gravity="center"
-        android:text="Cleantopya"
+        android:text="@string/cleantopya"
         android:textAllCaps="false"
         android:textColor="#A3F6CC4C"
         android:textSize="60sp"
