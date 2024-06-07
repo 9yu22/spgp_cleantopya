@@ -4,20 +4,18 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.RectF;
 import android.util.Log;
-
 public class Metrics {
     private static final String TAG = Metrics.class.getSimpleName();
+
     public static float width = 9.0f;
     public static float height = 16.0f;
 
-    public static final RectF borderRect = new RectF(0, 0, Metrics.width, Metrics.height);
     public static final RectF screenRect = new RectF();
 
     public static void setGameSize(float width, float height) {
+
         Metrics.width = width;
         Metrics.height = height;
-        borderRect.right = width;
-        borderRect.bottom = height;
     }
 
     private static final Matrix transformMatrix = new Matrix();

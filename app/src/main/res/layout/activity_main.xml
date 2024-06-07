@@ -8,6 +8,19 @@
     android:orientation="vertical"
     tools:context=".Cleantopya.app.MainActivity">
 
+    <Button
+        android:id="@+id/button_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:background="#408BC34A"
+        android:fontFamily="monospace"
+        android:text="X"
+        android:textColor="#FF9800"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:onClick="backbutton"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="211dp"
@@ -24,7 +37,7 @@
     <VideoView
         android:id="@+id/startVideo"
         android:layout_width="match_parent"
-        android:layout_height="456dp" />
+        android:layout_height="match_parent" />
 
     <Button
         android:id="@+id/button_start"

@@ -9,6 +9,7 @@ import android.util.Log;
 
 import com.example.myapplication.Cleantopya.app.ScoreActivity;
 import com.example.myapplication.framework.interfaces.IGameObject;
+import com.example.myapplication.framework.objects.Score;
 import com.example.myapplication.framework.scene.Scene;
 import com.example.myapplication.Cleantopya.app.CleantopyaActivity;
 
@@ -21,6 +22,8 @@ public class ObjectGenerator implements IGameObject {
     public static final float GEN_INTERVAL = 5.0f;
     private float furnitureGenerateTime = 0;
     private int gameend = 10; //총 100줄
+    int stage2score;
+    Score score;
 
     @Override
     public void update(float elapsedSeconds) {
@@ -29,9 +32,10 @@ public class ObjectGenerator implements IGameObject {
             if(Lines.size()<6 && !(gameend<0)) {
                 generate();
                 gameend--;
-                Log.d("gameend", "gameend: " + gameend);
+                //Log.d("gameend", "gameend: " + gameend);
             }
             if(gameend == -1 && Lines.isEmpty()){
+                //
                 method();
             }
             furnitureGenerateTime = GEN_INTERVAL;
@@ -78,5 +82,6 @@ public class ObjectGenerator implements IGameObject {
         context.startActivity(intent);
 
     }
+
 
 }

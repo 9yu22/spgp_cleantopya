@@ -7,4 +7,8 @@
     <string name="you_re_score_is">당신의 점수는</string>
     <string name="_00s">초</string>
     <string name="exit">종료</string>
+    <string name="x">종료</string>
+    <string name="are_you_sure_you_want_to_exit">정말 종료하시겠습니까?</string>
+    <string name="yes">예</string>
+    <string name="no">아니요</string>
 </resources>

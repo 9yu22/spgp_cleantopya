@@ -1,7 +1,9 @@
 package com.example.myapplication.Cleantopya.app;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.net.Uri;
@@ -39,4 +41,17 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void backbutton(View view) {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.x)
+                .setMessage(R.string.are_you_sure_you_want_to_exit)
+                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        finishAffinity();
+                        System.exit(0);
+                    }
+                })
+                .setNegativeButton(R.string.no, null)
+                .show();
+    }
 }

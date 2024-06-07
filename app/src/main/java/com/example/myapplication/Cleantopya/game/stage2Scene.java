@@ -2,19 +2,14 @@ package com.example.myapplication.Cleantopya.game;
 
 import android.graphics.Canvas;
 import android.graphics.Matrix;
-import android.util.Log;
 import android.view.MotionEvent;
 
 import com.example.myapplication.R;
-import com.example.myapplication.framework.interfaces.IGameObject;
 import com.example.myapplication.framework.objects.Score;
-import com.example.myapplication.framework.objects.VertScrollBackground;
+import com.example.myapplication.framework.objects.VertBackground;
 import com.example.myapplication.framework.res.Sound;
 import com.example.myapplication.framework.scene.Scene;
 import com.example.myapplication.framework.view.Metrics;
-
-import java.util.ArrayList;
-import java.util.Random;
 
 public class stage2Scene extends Scene {
     public static final float SHAKE_TIMER = 1.f;
@@ -27,15 +22,16 @@ public class stage2Scene extends Scene {
     boolean wrongTouch = false;
     float totalElapsedTime;
     private float shakeTimer;
-    private boolean flag = false;
     private int Flag = 0;
-
+    public int getScore() {
+        return score.getScore();
+    }
     public enum Layer {
         bg, enemy, icon, ui, controller, COUNT
     }
     public stage2Scene(){
         initLayers(stage2Scene.Layer.COUNT);
-        add(stage2Scene.Layer.bg, new VertScrollBackground(R.mipmap.background2, 0));
+        add(stage2Scene.Layer.bg, new VertBackground(R.mipmap.background2));
 
         this.redButton = new TouchButton(R.mipmap.red, 0, 14);
         float yellowX = 3.5f;
@@ -122,5 +118,21 @@ public class stage2Scene extends Scene {
             canvas.concat(transformMatrix);
         }
         super.draw(canvas);
+    }
+
+    protected void onStart() {
+        Sound.playMusic(R.raw.main);
+    }
+    @Override
+    protected void onPause() {
+        Sound.pauseMusic();
+    }
+    @Override
+    protected void onResume() {
+        Sound.resumeMusic();
+    }
+    @Override
+    protected void onEnd() {
+        Sound.stopMusic();
     }
 }

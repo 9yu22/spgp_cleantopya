@@ -4,10 +4,10 @@ import android.graphics.Canvas;
 
 import com.example.myapplication.framework.view.Metrics;
 
-public class VertScrollBackground extends Sprite {
+public class VertBackground extends Sprite {
 
     //private final float height;
-    public VertScrollBackground(int bitmapResId) {
+    public VertBackground(int bitmapResId) {
         super(bitmapResId);
         //this.height = bitmap.getHeight() * Metrics.width / bitmap.getWidth();
         //setPosition(Metrics.width / 2, Metrics.height / 2, Metrics.width, height);
@@ -20,12 +20,8 @@ public class VertScrollBackground extends Sprite {
     @Override
     public void draw(Canvas canvas) {
         //super.draw(canvas);
-        float curr = y % height;
-        if (curr > 0) curr -= height;
-        while (curr < Metrics.height) {
-            dstRect.set(0, 0, Metrics.width, height);
-            canvas.drawBitmap(bitmap, null, dstRect, null);
-            curr += height;
-        }
+        dstRect.set(0, 0, Metrics.width, Metrics.height);
+        canvas.drawBitmap(bitmap, null, dstRect, null);
+
     }
 }

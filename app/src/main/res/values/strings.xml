@@ -6,4 +6,8 @@
     <string name="you_re_score_is">You\'re Score is</string>
     <string name="_00s">00s</string>
     <string name="exit">exit</string>
+    <string name="x">Exit</string>
+    <string name="are_you_sure_you_want_to_exit">Are you sure you want to exit?</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
 </resources>

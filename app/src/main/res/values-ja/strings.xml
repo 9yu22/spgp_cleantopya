@@ -7,4 +7,8 @@
     <string name="you_re_score_is">あなたのスコアは</string>
     <string name="_00s">秒</string>
     <string name="exit">終了</string>
+    <string name="x">終了</string>
+    <string name="are_you_sure_you_want_to_exit">本当に終了しますか？</string>
+    <string name="yes">"はい "</string>
+    <string name="no">いいえ</string>
 </resources>
