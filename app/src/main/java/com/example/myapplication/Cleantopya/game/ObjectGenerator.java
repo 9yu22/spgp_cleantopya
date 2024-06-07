@@ -11,7 +11,6 @@ import com.example.myapplication.Cleantopya.app.ScoreActivity;
 import com.example.myapplication.framework.interfaces.IGameObject;
 import com.example.myapplication.framework.objects.Score;
 import com.example.myapplication.framework.scene.Scene;
-import com.example.myapplication.Cleantopya.app.CleantopyaActivity;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -21,10 +20,7 @@ public class ObjectGenerator implements IGameObject {
     private static final String TAG = ObjectGenerator.class.getSimpleName();
     public static final float GEN_INTERVAL = 5.0f;
     private float furnitureGenerateTime = 0;
-    private int gameend = 10; //총 100줄
-    int stage2score;
-    Score score;
-
+    private int gameend = 10; //총 10줄
     @Override
     public void update(float elapsedSeconds) {
         furnitureGenerateTime -= elapsedSeconds*7;
@@ -35,7 +31,6 @@ public class ObjectGenerator implements IGameObject {
                 //Log.d("gameend", "gameend: " + gameend);
             }
             if(gameend == -1 && Lines.isEmpty()){
-                //
                 method();
             }
             furnitureGenerateTime = GEN_INTERVAL;
@@ -78,7 +73,12 @@ public class ObjectGenerator implements IGameObject {
 
     public void method() {
         Context context = getContext();
+
+        stage1Scene Stage1Scene = stage1Scene.getInstance();
+        int stage1score = Stage1Scene.getStage1score();
+        Log.d("stage1Score", "stage1score: " + stage1score);
         Intent intent = new Intent(context, ScoreActivity.class);
+        intent.putExtra("STAGE_1_SCORE", stage1score);
         context.startActivity(intent);
 
     }

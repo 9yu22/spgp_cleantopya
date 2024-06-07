@@ -6,10 +6,7 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.Log;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Random;
-import java.util.Set;
 
 import com.example.myapplication.Cleantopya.game.HomeObject;
 import com.example.myapplication.framework.interfaces.IGameObject;

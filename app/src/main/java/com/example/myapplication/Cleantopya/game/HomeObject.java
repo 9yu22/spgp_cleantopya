@@ -25,7 +25,6 @@ public class HomeObject extends AnimSprite implements IBoxCollidable, IRecyclabl
     public static final float ANIM_FPS = 10.0f;
     protected RectF collisionRect = new RectF();
     private int level;
-    private int life;
 
     private HomeObject(int level, int index) {
         super(0, 0);
@@ -35,7 +34,7 @@ public class HomeObject extends AnimSprite implements IBoxCollidable, IRecyclabl
 
     private void init(int level, int index) {
         this.level = level;
-        this.life = 1;
+
         setAnimationResource(resIds[level], ANIM_FPS);
         setPosition(Metrics.width / 10 * (4 * index + 1), -RADIUS, RADIUS);
     }
@@ -73,10 +72,6 @@ public class HomeObject extends AnimSprite implements IBoxCollidable, IRecyclabl
     @Override
     public void onRecycle() {
 
-    }
-
-    public int getScore() {
-        return (level + 1) * 100;
     }
 
     @Override

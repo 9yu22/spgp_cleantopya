@@ -1,8 +1,6 @@
 package com.example.myapplication.Cleantopya.game;
 
-import android.graphics.Point;
 import android.util.Log;
-import android.view.Display;
 import android.view.MotionEvent;
 
 import com.example.myapplication.R;
@@ -22,8 +20,7 @@ public class stage1Scene extends Scene {
     TouchButton redButton;
     TouchButton yellowButton;
     TouchButton blueButton;
-    Score score; // package private
-    int stage1score;
+    Score score;
     float totalElapsedTime;
     Dust dust1;
     Dust dust2;
@@ -33,7 +30,13 @@ public class stage1Scene extends Scene {
 
     Sprite cushion;
 
-    public int getScore() {
+    private static stage1Scene instance;
+
+    public static stage1Scene getInstance() {
+        return instance;
+    }
+
+    public int getStage1score() {
         return score.getScore();
     }
 
@@ -42,6 +45,7 @@ public class stage1Scene extends Scene {
     }
 
     public stage1Scene() {
+        instance = this;
         Metrics.setGameSize(9, 16);
         initLayers(Layer.COUNT);
 
@@ -109,16 +113,14 @@ public class stage1Scene extends Scene {
                     count++;
                     Sound.playEffect(blueButton.getSoundResId());
                 }
-                Log.d("onTouchEvent", "count" + count);
+                //Log.d("onTouchEvent", "count" + count);
             }
             else {
-                Log.d("onTouchEvent", "count is End" + count);
+                //Log.d("onTouchEvent", "count is End" + count);
                 yellowVisible = true;
                 addYellowButton();
             }
             if(yellowVisible && yellowButton.isClicked(touchx, touchy)){
-                stage1score = score.getScore();
-                Log.d("stage1Score", "stage1score: " + stage1score);
                 new stage2Scene().push();
             }
         }
