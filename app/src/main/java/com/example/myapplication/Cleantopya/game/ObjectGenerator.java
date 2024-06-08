@@ -31,7 +31,9 @@ public class ObjectGenerator implements IGameObject {
                 //Log.d("gameend", "gameend: " + gameend);
             }
             if(gameend == -1 && Lines.isEmpty()){
+                Log.d("clear", "clear");
                 method();
+
             }
             furnitureGenerateTime = GEN_INTERVAL;
         }
@@ -79,6 +81,7 @@ public class ObjectGenerator implements IGameObject {
         Log.d("stage1Score", "stage1score: " + stage1score);
         Intent intent = new Intent(context, ScoreActivity.class);
         intent.putExtra("STAGE_1_SCORE", stage1score);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // 플래그 추가
         context.startActivity(intent);
 
     }

@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
-        <activity android:name=".Cleantopya.app.ScoreActivity" />"
+        <activity android:name=".Cleantopya.app.ScoreActivity" />
         <activity
             android:name=".Cleantopya.app.CleantopyaActivity"
             android:configChanges="orientation|screenSize"
