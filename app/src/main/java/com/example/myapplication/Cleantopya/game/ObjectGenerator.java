@@ -20,7 +20,7 @@ public class ObjectGenerator implements IGameObject {
     private static final String TAG = ObjectGenerator.class.getSimpleName();
     public static final float GEN_INTERVAL = 5.0f;
     private float furnitureGenerateTime = 0;
-    private int gameend = 10; //총 10줄
+    private int gameend = 1; //총 10줄
     @Override
     public void update(float elapsedSeconds) {
         furnitureGenerateTime -= elapsedSeconds*7;
@@ -78,9 +78,12 @@ public class ObjectGenerator implements IGameObject {
 
         stage1Scene Stage1Scene = stage1Scene.getInstance();
         int stage1score = Stage1Scene.getStage1score();
-        Log.d("stage1Score", "stage1score: " + stage1score);
+        stage2Scene Stage2Scene = stage2Scene.getInstance();
+        int stage2score = Stage2Scene.getStage2score();
+        //Log.d("stage1Score", "stage1score: " + stage1score);
         Intent intent = new Intent(context, ScoreActivity.class);
         intent.putExtra("STAGE_1_SCORE", stage1score);
+        intent.putExtra("STAGE_2_SCORE", stage2score);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // 플래그 추가
         context.startActivity(intent);
 

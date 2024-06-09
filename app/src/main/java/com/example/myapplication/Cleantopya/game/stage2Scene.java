@@ -23,13 +23,19 @@ public class stage2Scene extends Scene {
     float totalElapsedTime;
     private float shakeTimer;
     private int Flag = 0;
-    public int getScore() {
+    private static stage2Scene instance;
+    public static stage2Scene getInstance() {
+        return instance;
+    }
+
+    public int getStage2score() {
         return score.getScore();
     }
     public enum Layer {
         bg, enemy, icon, ui, controller, COUNT
     }
     public stage2Scene(){
+        instance = this;
         initLayers(stage2Scene.Layer.COUNT);
         add(stage2Scene.Layer.bg, new VertBackground(R.mipmap.background2));
 
