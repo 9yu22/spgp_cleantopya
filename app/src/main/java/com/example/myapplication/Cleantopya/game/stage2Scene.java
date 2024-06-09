@@ -126,6 +126,7 @@ public class stage2Scene extends Scene {
         super.draw(canvas);
     }
 
+    @Override
     protected void onStart() {
         Sound.playMusic(R.raw.main);
     }

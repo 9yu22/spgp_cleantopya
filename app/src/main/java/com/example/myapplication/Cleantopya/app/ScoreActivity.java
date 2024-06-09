@@ -1,6 +1,7 @@
 package com.example.myapplication.Cleantopya.app;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,16 +11,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.ScoreActivityBinding;
+import com.example.myapplication.framework.res.Sound;
 
 public class ScoreActivity extends AppCompatActivity {
     private ScoreActivityBinding binding;
-
+    private MediaPlayer mediaPlayer;
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
 
         binding = ScoreActivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        mediaPlayer = MediaPlayer.create(this, R.raw.goodvibes);
+        mediaPlayer.start();
 
         Intent intent = getIntent();
         if (intent != null) {
@@ -45,10 +50,16 @@ public class ScoreActivity extends AppCompatActivity {
         exitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mediaPlayer.pause(); // 음악 재생 일시 중지
+                mediaPlayer.seekTo(0); // 재생 위치 초기화
+                mediaPlayer.release(); // MediaPlayer 자원 해제
+                mediaPlayer = null;
+
                 Intent intent = new Intent(ScoreActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
 
     }
+
 }
