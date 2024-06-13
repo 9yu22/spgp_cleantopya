@@ -15,7 +15,7 @@ public class stage1Scene extends Scene {
     private static final String TAG = stage1Scene.class.getSimpleName();
 
     int count;
-    int randomGoalCount = (int)(Math.random()*10)+20; //[20,30)
+    int randomGoalCount = (int)(Math.random()*10)+90; //[90,100)
     boolean yellowVisible = false;
     TouchButton redButton;
     TouchButton yellowButton;
@@ -27,6 +27,11 @@ public class stage1Scene extends Scene {
     Dust dust3;
     Dust dust4;
     Dust dust5;
+    Dust dust6;
+    Dust dust7;
+    Dust dust8;
+    Dust dust9;
+    Dust dust10;
 
     Sprite cushion;
 
@@ -73,11 +78,22 @@ public class stage1Scene extends Scene {
         this.dust4 = new Dust(7.f, 8.f);
         this.dust5 = new Dust(7.5f, 8.f);
 
+        this.dust6 = new Dust(4.f, 8.f);
+        this.dust7 = new Dust(6.f, 8.f);
+        this.dust8 = new Dust(2.5f, 8.f);
+        this.dust9 = new Dust(2.f, 8.f);
+        this.dust10 = new Dust(7.5f, 8.f);
+
         add(Layer.object, dust1);
         add(Layer.object, dust2);
         add(Layer.object, dust3);
         add(Layer.object, dust4);
         add(Layer.object, dust5);
+        add(Layer.object, dust6);
+        add(Layer.object, dust7);
+        add(Layer.object, dust8);
+        add(Layer.object, dust9);
+        add(Layer.object, dust10);
     }
 
     public void addScore(int amount) {
@@ -134,20 +150,27 @@ public class stage1Scene extends Scene {
     }
 
     public void dustMove() {
-        if(count>5){
-            dust1.move(5.f);
-        }
-        if(count>10){
-            dust2.move(3.f);
-        }
         if(count>15){
+            dust1.move(5.f);
+            dust6.move(4.f);
+        }
+        if(count>30){
+            dust2.move(3.f);
+            dust10.move(5.5f);
+        }
+        if(count>45){
             dust3.move(5.f);
+            dust7.move(6.f);
         }
-        if(count>20){
+        if(count>60){
             dust4.move(3.f);
+            dust9.move(4.f);
         }
-        if(count>25){
+        if(count>75){
             dust5.move(5.f);
+        }
+        if(count>90){
+            dust8.move(6.5f);
         }
     }
 

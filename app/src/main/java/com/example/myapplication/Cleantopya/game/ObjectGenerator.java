@@ -20,10 +20,10 @@ public class ObjectGenerator implements IGameObject {
     private static final String TAG = ObjectGenerator.class.getSimpleName();
     public static final float GEN_INTERVAL = 5.0f;
     private float furnitureGenerateTime = 0;
-    private int gameend = 1; //총 10줄
+    private int gameend = 29; //총 30줄
     @Override
     public void update(float elapsedSeconds) {
-        furnitureGenerateTime -= elapsedSeconds*7;
+        furnitureGenerateTime -= elapsedSeconds*25;
         if (furnitureGenerateTime < 0) {
             if(Lines.size()<6 && !(gameend<0)) {
                 generate();

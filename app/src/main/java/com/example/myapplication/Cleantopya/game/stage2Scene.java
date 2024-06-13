@@ -12,7 +12,7 @@ import com.example.myapplication.framework.scene.Scene;
 import com.example.myapplication.framework.view.Metrics;
 
 public class stage2Scene extends Scene {
-    public static final float SHAKE_TIMER = 1.f;
+    public static final float SHAKE_TIMER = 0.5f;
     TouchButton redButton;
     TouchButton yellowButton;
     TouchButton blueButton;
@@ -114,13 +114,13 @@ public class stage2Scene extends Scene {
     public void draw(Canvas canvas){
         if (wrongTouch) {
             Matrix transformMatrix = new Matrix();
-            if(Flag<5) {
+            if(Flag<2) {
                 transformMatrix.setTranslate(0.2f, 0.1f);
             }
             else {
                 transformMatrix.setTranslate(-0.2f, -0.1f);
             }
-            Flag=(Flag+1)%10;
+            Flag=(Flag+1)%4;
             canvas.concat(transformMatrix);
         }
         super.draw(canvas);

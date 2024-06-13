@@ -34,12 +34,12 @@ public class ScoreActivity extends AppCompatActivity {
             binding.stage2score.setText(String.valueOf(stage2score));
             binding.addAllScore.setText(String.valueOf(stage1score+stage2score));
             int add12score = stage1score+stage2score;
-            if(add12score<10)        binding.resultscore.setText("SS");
-            else if(add12score>11 && add12score<20) binding.resultscore.setText("S");
-            else if(add12score>21 && add12score<30) binding.resultscore.setText("A");
-            else if(add12score>31 && add12score<40) binding.resultscore.setText("B");
-            else if(add12score>41 && add12score<50) binding.resultscore.setText("C");
-            else if(add12score>51 && add12score<60) binding.resultscore.setText("D");
+            if(add12score<=10)        binding.resultscore.setText("SS");
+            else if(add12score>=11 && add12score<=20) binding.resultscore.setText("S");
+            else if(add12score>=21 && add12score<=30) binding.resultscore.setText("A");
+            else if(add12score>=31 && add12score<=40) binding.resultscore.setText("B");
+            else if(add12score>=41 && add12score<=50) binding.resultscore.setText("C");
+            else if(add12score>=51 && add12score<=60) binding.resultscore.setText("D");
             else binding.resultscore.setText("F");
         }
 
