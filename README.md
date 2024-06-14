@@ -58,9 +58,11 @@
  -stage1Scene, stage2Scene 클래스
  
  -Touchbutton 
+ 
  `각 scene에서 확인된 터치에 따라 버튼의 입력을 확인`
  
  -HomeObject, ObjectLine, ObjectGenerator
+
  `-ObjectGenerator에서는 ObjectLine을 생성합니다.`
 
  `-HomeObject에서 한 개의 아이템을 관리하고, objectLine에서 HomeObject 3개를 하나의 line으로 묶어 관리합니다. objectLine에선 랜덤하게 1~3개의 object를 가지며 랜덤한 이미지를 꺼내어 생성합니다.`
@@ -68,6 +70,7 @@
  `-이렇게 관리된 하나의 line을 버튼 입력에 따라 버튼과 가까운 맨 아래줄 부터 해당 버튼위치에 있는 줄에 아이템이 있는지 없는지를 확인하고, 있으면 지우고 없으면 화면이 흔들립니다. 아이템 한줄이 모두 지워지면 모두 한줄씩 당겨지고 새로운 아이템 줄이 생성됩니다.`
 
  -각 Scene의 점수 계산
+
  `-stage1은 노란색 버튼이 눌릴때까지의 걸린 시간을 저장하고, stage2는 가장 마지막 아이템줄이 지워지는 때까지 계산하여 걸린시간을 저장합니다.` 
 
  `-저장된 시간들은 scoreActivity를 부르면서 함께 전달되며 마지막 scoreActivity에서 두 점수를 합쳐 성적을 부여합니다.`
